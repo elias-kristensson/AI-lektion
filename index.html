@@ -1,1434 +1,983 @@
-```html
 <!DOCTYPE html>
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nätverkstan UF – Hemsidor för företag</title>
-<meta name="description" content="Nätverkstan UF skapar moderna, skräddarsydda hemsidor för företag. Upptäck våra tjänster, paket och projekt.">
-<meta name="theme-color" content="#111a22">
+<title>Hemsida till företag i Kungsbacka | Nätverkstan UF</title>
+<meta name="description" content="Nätverkstan UF bygger hemsidor för företag i Kungsbacka med omnejd. Mobilanpassad, sökbar och publicerad — från 3 499 kr.">
+<meta name="theme-color" content="#171210">
+<meta property="og:title" content="Hemsida till företag i Kungsbacka | Nätverkstan UF">
+<meta property="og:description" content="Hemsidor som blir hittade, lästa och kontaktade. Behöver inte kosta mer än 3 499 kr.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:site_name" content="Nätverkstan UF">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --ink: #17232e;
-    --dark: #111a22;
-    --paper: #faf9f6;
-    --muted: #68737c;
-    --line: #e3e4e1;
-    --accent: #e85d3f;
-    --soft: #f0f0ec;
+    --paper: #FAF7F3;
+    --ink: #171210;
+    --ink-2: #241c18;
+    --accent: #D8330A;
+    --accent-d: #b82a07;
+    --muted: #6f655e;
+    --line: #e7dfd6;
+    --soft: #f2ede6;
     --white: #fff;
-    --radius: 8px;
-    --width: 1160px;
+    --radius: 14px;
+    --width: 1180px;
+    --font: 'Archivo', Arial, Helvetica, sans-serif;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 95px;
-}
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font);
     background: var(--paper);
     color: var(--ink);
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
-button, input, textarea {
-    font: inherit;
-}
+button, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+img, canvas { max-width: 100%; }
 
-button, a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-a {
-    color: inherit;
-}
-
-button {
-    cursor: pointer;
-}
-
-img {
-    max-width: 100%;
-}
-
-.container {
-    width: min(var(--width), 88%);
-    margin-inline: auto;
-}
-
-.muted {
-    color: var(--muted);
-}
+.container { width: min(var(--width), 90%); margin-inline: auto; }
+.muted { color: var(--muted); }
 
 .eyebrow {
     color: var(--accent);
-    font-size: 11px;
+    font-size: 12px;
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 1.8px;
-    margin-bottom: 15px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
 }
 
-h1, h2, h3 {
-    line-height: 1.16;
-    letter-spacing: -1.1px;
-}
+h1, h2, h3 { line-height: 1.1; letter-spacing: -.03em; font-weight: 800; }
+h1 { font-size: clamp(40px, 6vw, 78px); letter-spacing: -.045em; font-weight: 900; }
+h2 { font-size: clamp(30px, 4vw, 48px); margin-bottom: 20px; }
+h3 { font-size: 20px; margin-bottom: 10px; letter-spacing: -.02em; }
+h1 em, h2 em, .accent { font-style: normal; color: var(--accent); }
+p { margin-bottom: 18px; }
 
-h1 {
-    font-size: clamp(42px, 6.3vw, 74px);
-    letter-spacing: -3.5px;
-}
+.section { padding: 96px 0; position: relative; }
+.section.soft { background: var(--soft); }
+.section.dark { background: var(--ink); color: #fff; }
+.section.dark .muted, .section.dark p { color: #c9bfb7; }
+.section-head { max-width: 720px; margin-bottom: 44px; }
+.section-head p { color: var(--muted); font-size: 17px; }
+.dark .section-head p { color: #c9bfb7; }
 
-h2 {
-    font-size: clamp(29px, 4vw, 43px);
-    margin-bottom: 18px;
-}
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.split.top { align-items: start; }
 
-h3 {
-    font-size: 20px;
-    margin-bottom: 12px;
-}
+.ticks { list-style: none; margin: 22px 0; }
+.ticks li { display: flex; gap: 12px; padding: 9px 0; font-size: 15.5px; }
+.ticks li::before { content: "→"; color: var(--accent); font-weight: 800; flex: none; }
 
-p {
-    margin-bottom: 18px;
-}
-
-.section {
-    padding: 86px 0;
-}
-
-.section-heading {
-    max-width: 650px;
-    margin-bottom: 38px;
-}
-
-.section-heading p {
-    color: var(--muted);
-    max-width: 570px;
-}
-
-.accent {
-    color: var(--accent);
-}
-
+/* BUTTONS */
 .btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 13px 19px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 13px;
-    transition: background .2s, color .2s, border-color .2s;
+    display: inline-flex; justify-content: center; align-items: center; gap: 8px;
+    padding: 15px 24px; border: 1px solid transparent; border-radius: 10px;
+    text-decoration: none; font-weight: 700; font-size: 14px;
+    transition: transform .2s, background .2s, color .2s, border-color .2s, box-shadow .2s;
+    background: none;
 }
-
-.btn-primary {
-    color: white;
-    background: var(--accent);
-}
-
-.btn-primary:hover {
-    background: #cf492f;
-}
-
-.btn-dark {
-    background: var(--dark);
-    color: white;
-}
-
-.btn-dark:hover {
-    background: #293844;
-}
-
-.btn-outline {
-    border-color: #cbd0d2;
-    background: transparent;
-    color: var(--ink);
-}
-
-.btn-outline:hover {
-    background: var(--soft);
-}
-
-.btn-white {
-    background: white;
-    color: var(--dark);
-}
-
-.btn-white:hover {
-    background: #ecece7;
-}
-
-.btn-small {
-    padding: 10px 13px;
-    font-size: 12px;
-}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--accent); color: #fff; box-shadow: 0 10px 30px -10px rgba(216,51,10,.7); }
+.btn-primary:hover { background: var(--accent-d); }
+.btn-dark { background: var(--ink); color: #fff; }
+.btn-dark:hover { background: #3a2f29; }
+.btn-ghost { border-color: rgba(255,255,255,.3); color: #fff; }
+.btn-ghost:hover { background: rgba(255,255,255,.1); }
+.btn-outline { border-color: #cfc5ba; }
+.btn-outline:hover { background: var(--soft); }
+.btn-white { background: #fff; color: var(--ink); }
+.btn-small { padding: 10px 16px; font-size: 13px; }
 
 /* HEADER */
-
-header {
-    background: var(--dark);
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 50;
+.site-header {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(23,18,16,.82);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    color: #fff; border-bottom: 1px solid rgba(255,255,255,.08);
 }
-
-.navbar {
-    min-height: 76px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+.navbar { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.brand { text-decoration: none; font-weight: 800; font-size: 20px; letter-spacing: -.03em; white-space: nowrap; }
+.brand b { color: var(--accent); font-weight: 900; }
+.nav-links { display: flex; align-items: center; gap: 2px; }
+.nav-links a {
+    position: relative; padding: 10px 12px; color: #d7cdc4; text-decoration: none;
+    font-size: 13.5px; font-weight: 500; transition: color .2s;
 }
-
-.brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: .4px;
-    white-space: nowrap;
+.nav-links a:hover, .nav-links a.active { color: #fff; }
+.nav-links a.active::after {
+    content: ""; position: absolute; left: 12px; right: 12px; bottom: 2px;
+    height: 2px; background: var(--accent);
 }
+.mobile-toggle { display: none; background: transparent; color: #fff; border: 1px solid #5a4f48; border-radius: 8px; padding: 8px 12px; font-size: 13px; }
 
-.brand-mark {
-    width: 31px;
-    height: 31px;
-    display: grid;
-    place-items: center;
-    border: 2px solid white;
-    font-size: 18px;
-    font-weight: 800;
-    transform: skew(-5deg);
-}
+/* PAGES */
+.page { display: none; }
+.page.active { display: block; animation: pageIn .45s ease; }
+@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.nav-links button {
-    position: relative;
-    padding: 11px 12px;
-    color: #d4d9dc;
-    background: none;
-    border: 0;
-    font-size: 12px;
-}
-
-.nav-links button:hover,
-.nav-links button.active {
-    color: white;
-}
-
-.nav-links button.active::after {
-    content: "";
-    position: absolute;
-    height: 2px;
-    bottom: 2px;
-    left: 12px;
-    right: 12px;
-    background: var(--accent);
-}
-
-.mobile-toggle {
-    display: none;
-    background: transparent;
-    color: white;
-    border: 1px solid #48515a;
-    border-radius: 5px;
-    padding: 8px 11px;
-}
-
-/* PAGE NAVIGATION */
-
-.page {
-    display: none;
-}
-
-.page.active {
-    display: block;
-    animation: enter .2s ease;
-}
-
-@keyframes enter {
-    from { opacity: .55; }
-    to { opacity: 1; }
-}
-
-/* HERO */
-
+/* HERO + WEBGL */
 .hero {
-    color: white;
-    background:
-        linear-gradient(90deg,
-            rgba(13, 22, 29, .98) 0%,
-            rgba(13, 22, 29, .89) 44%,
-            rgba(13, 22, 29, .23) 100%),
-        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=85")
-        center 55% / cover;
-    min-height: 480px;
-    display: flex;
-    align-items: center;
+    position: relative; isolation: isolate; overflow: hidden;
+    min-height: calc(100vh - 72px); min-height: calc(100svh - 72px);
+    background: radial-gradient(ellipse at 72% 42%, #3d1409 0%, #20120d 42%, #171210 75%);
+    color: #fff; display: flex; align-items: center;
 }
-
-.hero-inner {
-    padding-top: 82px;
-    padding-bottom: 82px;
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; display: block; touch-action: pan-y; }
+.hero-inner { padding-top: 70px; padding-bottom: 110px; position: relative; }
+.hero-copy { max-width: 640px; perspective: 800px; }
+.hero h1 { margin-bottom: 26px; }
+.hero h1 .w {
+    display: inline-block; transform-origin: 50% 100%;
+    animation: wordIn 1s cubic-bezier(.2,.8,.2,1) both;
+    animation-delay: calc(var(--i) * .07s + .1s);
 }
-
-.hero-copy {
-    max-width: 590px;
+@keyframes wordIn {
+    from { opacity: 0; transform: rotateX(-80deg) translateY(30px) translateZ(-60px); }
+    to { opacity: 1; transform: none; }
 }
-
-.hero h1 {
-    margin-bottom: 23px;
+.hero p.lead { color: #dcd2c9; font-size: 18px; max-width: 540px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.hero-facts { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 38px; font-size: 14px; color: #e8ded5; }
+.hero-facts li::before { content: "●"; color: var(--accent); margin-right: 9px; font-size: 9px; vertical-align: 2px; }
+.hero-contact { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 13px; color: #b9aea5; }
+.hero-contact a { text-decoration: none; color: #fff; }
+.hero-contact a:hover { color: #ff8a6c; }
+.hero-note { position: absolute; right: 5%; bottom: 40px; font-size: 12px; color: #a99e95; max-width: 260px; text-align: right; }
+.scroll-cue {
+    position: absolute; left: 50%; bottom: 22px; width: 22px; height: 36px; margin-left: -11px;
+    border: 2px solid rgba(255,255,255,.35); border-radius: 12px;
 }
-
-.hero p {
-    color: #d5dadd;
-    max-width: 490px;
-    font-size: 16px;
+.scroll-cue::after {
+    content: ""; position: absolute; left: 50%; top: 6px; width: 3px; height: 7px; margin-left: -1.5px;
+    background: #fff; border-radius: 2px; animation: cue 1.6s infinite;
 }
+@keyframes cue { 0% { opacity: 0; transform: translateY(0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(12px); } }
 
-.hero-actions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 28px;
+/* TICKER */
+.ticker {
+    background: var(--accent); color: #fff; overflow: hidden; white-space: nowrap;
+    transform: rotate(-1.2deg) scale(1.03); margin-top: -22px; position: relative; z-index: 3;
+    box-shadow: 0 16px 40px -16px rgba(0,0,0,.5);
 }
+.ticker-track { display: inline-flex; animation: tick 30s linear infinite; padding: 15px 0; }
+.ticker-half { display: inline-flex; gap: 42px; padding-right: 42px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; font-size: 14px; }
+.ticker-half span::after { content: "✦"; margin-left: 42px; opacity: .6; }
+@keyframes tick { to { transform: translateX(-50%); } }
 
-/* FEATURES */
-
-.feature-layout {
-    display: grid;
-    grid-template-columns: 1.05fr 2fr;
-    gap: 60px;
-    align-items: start;
+/* REVEAL + TILT (3D) */
+.reveal { opacity: 0; }
+.reveal.in { opacity: 1; animation: rise .9s cubic-bezier(.2,.7,.2,1) backwards; animation-delay: var(--d, 0s); }
+@keyframes rise {
+    from { opacity: 0; transform: perspective(900px) rotateX(22deg) translateY(56px) translateZ(-40px); }
+    to { opacity: 1; transform: none; }
 }
-
-.feature-layout > div:first-child p {
-    color: var(--muted);
+.tilt {
+    position: relative; transform-style: preserve-3d;
+    transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: transform .25s ease-out, box-shadow .25s;
+    will-change: transform;
 }
-
-.features {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0 28px;
+.tilt::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.32), transparent 55%);
+    opacity: 0; transition: opacity .25s;
 }
+.tilt:hover::after { opacity: 1; }
+.tilt:hover { box-shadow: 0 30px 60px -25px rgba(23,18,16,.35); }
+.pop { transform: translateZ(34px); }
+.pop-2 { transform: translateZ(18px); }
 
-.feature {
-    padding: 20px 0;
-    border-top: 1px solid var(--line);
-}
-
-.feature-icon {
-    width: 35px;
-    height: 35px;
-    border: 1px solid #d7d9d7;
-    border-radius: 6px;
-    display: grid;
-    place-items: center;
-    font-size: 17px;
-    margin-bottom: 15px;
-}
-
-.feature h3 {
-    font-size: 16px;
-    letter-spacing: -.3px;
-}
-
-.feature p {
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 0;
-}
-
-/* DARK BANNER */
-
-.dark-banner {
-    background: var(--dark);
-    color: white;
-}
-
-.banner-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.banner-grid p {
-    color: #c5cdd2;
-}
-
-.banner-statements {
-    border-top: 1px solid #38434c;
-}
-
-.banner-statement {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-    border-bottom: 1px solid #38434c;
-    font-size: 14px;
-}
-
-.banner-statement span:last-child {
-    color: var(--accent);
-}
-
-/* GENERAL CARDS */
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
+/* CARDS */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.cards.four { grid-template-columns: repeat(4, 1fr); }
+.cards.two { grid-template-columns: repeat(2, 1fr); }
 .card {
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 27px;
-    background: white;
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px;
 }
+.card .num { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 26px; display: block; }
+.card p { font-size: 14.5px; color: var(--muted); margin-bottom: 0; }
+.dark .card { background: #231a16; border-color: #3a2e28; }
+.dark .card p { color: #c9bfb7; }
 
-.card-number {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 1px;
-    margin-bottom: 26px;
-}
+/* SERP + METRIC */
+.serp { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; box-shadow: 0 30px 60px -35px rgba(23,18,16,.4); }
+.serp-q { background: var(--soft); border-radius: 30px; padding: 11px 20px; font-size: 14px; margin-bottom: 20px; }
+.serp-r { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.serp-r:last-child { border: 0; }
+.serp-r small { color: var(--muted); display: block; font-size: 12px; }
+.serp-r.hit { background: #fff3ee; margin: 0 -26px; padding: 14px 26px; border-left: 3px solid var(--accent); }
+.serp-r.hit strong { color: #1a0dab; }
+.serp-r.hit em { color: var(--accent); font-style: normal; font-weight: 800; margin-right: 8px; }
 
-.card p {
-    color: var(--muted);
-    font-size: 14px;
-}
+.metric { background: var(--ink); color: #fff; border-radius: var(--radius); padding: 40px; }
+.metric .big { font-size: clamp(56px, 8vw, 96px); font-weight: 900; letter-spacing: -.05em; line-height: 1; color: var(--accent); }
+.metric .big small { font-size: .4em; color: #fff; letter-spacing: 0; margin-left: 6px; }
+.metric p { color: #c9bfb7; margin: 14px 0 0; font-size: 14px; }
 
-.card .text-link {
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: none;
-    margin-top: 5px;
-}
+/* PHONE STAGE */
+.phone-stage { position: relative; height: 560px; }
+.phone-stage canvas { width: 100%; height: 100%; display: block; }
+.phone-spec { display: flex; gap: 22px; font-size: 13px; color: var(--muted); }
+.phone-spec b { color: var(--ink); }
 
-.text-link:hover {
-    color: var(--accent);
-}
+/* PRICE */
+.price-hero { background: var(--ink); color: #fff; border-radius: 20px; padding: 44px; }
+.price-hero .label { color: #c9bfb7; font-size: 13px; text-transform: uppercase; letter-spacing: 1.6px; }
+.price-hero .amount { font-size: clamp(48px, 7vw, 84px); font-weight: 900; letter-spacing: -.05em; line-height: 1; margin: 14px 0 6px; }
+.price-hero .amount span { color: var(--accent); }
+.price-hero small { color: #c9bfb7; }
+.pledges { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 30px; margin-top: 28px; }
+.pledges div { font-size: 14px; color: #d8cec6; padding-top: 14px; border-top: 1px solid #3a2e28; }
+.pledges b { color: #fff; display: block; }
 
-/* PRICING */
+.uf-packs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; max-width: 900px; }
+.pack { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 38px; display: flex; flex-direction: column; }
+.pack.rec { background: var(--ink); color: #fff; border-color: var(--ink); }
+.pack .tag { display: inline-block; align-self: flex-start; background: var(--accent); color: #fff; padding: 4px 11px; border-radius: 20px; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+.pack .p { font-size: 54px; font-weight: 900; letter-spacing: -.045em; line-height: 1; margin: 18px 0 6px; }
+.pack .old { color: #a99e95; text-decoration: line-through; font-size: 15px; }
+.pack ul { list-style: none; margin: 22px 0 28px; flex: 1; }
+.pack li { display: flex; gap: 10px; font-size: 14.5px; padding: 7px 0; }
+.pack li::before { content: "✓"; color: var(--accent); font-weight: 800; }
+.pack li.no { opacity: .6; }
+.pack li.no::before { content: "–"; }
+.pack .domain { font-weight: 800; font-size: 15px; background: rgba(255,255,255,.08); border-radius: 8px; padding: 10px 14px; margin-bottom: 4px; }
+.pack .btn { width: 100%; }
+.pack.rec .btn-outline { border-color: rgba(255,255,255,.35); }
 
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 17px;
-}
-
-.price-card {
-    padding: 27px;
-    border: 1px solid var(--line);
-    background: white;
-    border-radius: 7px;
-    display: flex;
-    flex-direction: column;
-}
-
-.price-card.featured {
-    background: var(--dark);
-    border-color: var(--dark);
-    color: white;
-}
-
-.price-card .price {
-    font-size: 31px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin: 15px 0 2px;
-}
-
-.price-card .price-caption {
-    color: var(--muted);
-    font-size: 12px;
-    margin-bottom: 20px;
-}
-
-.price-card.featured .price-caption {
-    color: #c2cbd0;
-}
-
-.price-card ul {
-    list-style: none;
-    margin: 14px 0 24px;
-    flex: 1;
-}
-
-.price-card li {
-    font-size: 13px;
-    padding: 7px 0;
-    display: flex;
-    gap: 9px;
-}
-
-.price-card li::before {
-    content: "✓";
-    color: var(--accent);
-    font-weight: 800;
-}
-
-.price-card .btn {
-    width: 100%;
-}
-
-.price-card.featured .btn {
-    background: white;
-    color: var(--dark);
-}
-
-.price-card.featured .btn:hover {
-    background: #e9e9e5;
-}
-
-.disclaimer {
-    margin-top: 20px;
-    font-size: 12px;
-    color: var(--muted);
-}
+/* STEPS */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.step { padding-top: 22px; border-top: 3px solid var(--ink); }
+.dark .step { border-color: #fff; }
+.step .n { font-size: 54px; font-weight: 900; color: var(--accent); letter-spacing: -.05em; line-height: 1; margin-bottom: 18px; display: block; }
+.step p { color: var(--muted); font-size: 14.5px; margin: 0; }
 
 /* PROJECTS */
-
-.project-toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 28px;
-}
-
-.filter-btn {
-    border: 1px solid var(--line);
-    padding: 9px 15px;
-    background: white;
-    border-radius: 4px;
-    font-size: 12px;
-}
-
-.filter-btn.active,
-.filter-btn:hover {
-    background: var(--dark);
-    border-color: var(--dark);
-    color: white;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
-}
-
-.project-card {
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    overflow: hidden;
-    background: white;
-}
-
-.project-preview {
-    background: #e7e7e1;
-    min-height: 200px;
-    padding: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.browser {
-    width: 100%;
-    max-width: 410px;
-    background: white;
-    box-shadow: 0 8px 24px #00000012;
-}
-
-.browser-bar {
-    height: 25px;
-    background: #f1f1ed;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 0 10px;
-}
-
-.browser-bar i {
-    height: 6px;
-    width: 6px;
-    border-radius: 50%;
-    background: #c5c6c0;
-}
-
-.browser-content {
-    padding: 25px 20px;
-    min-height: 115px;
-}
-
-.browser-content strong {
-    font-size: 20px;
-    line-height: 1.2;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.browser-content span {
-    font-size: 10px;
-    color: var(--muted);
-}
-
-.project-info {
-    padding: 24px;
-}
-
-.project-info p {
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 15px;
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-}
-
-.project-tags span {
-    font-size: 10px;
-    padding: 5px 9px;
-    background: var(--soft);
-    border-radius: 3px;
-}
-
-.empty-projects {
-    padding: 35px;
-    color: var(--muted);
-    background: white;
-    border: 1px solid var(--line);
-    grid-column: 1 / -1;
-}
-
-/* PROCESS */
-
-.steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.step {
-    padding-top: 20px;
-    border-top: 2px solid var(--ink);
-}
-
-.step .step-number {
-    color: var(--accent);
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 25px;
-}
-
-.step p {
-    color: var(--muted);
-    font-size: 13px;
-}
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.filter-btn { border: 1px solid var(--line); padding: 10px 18px; background: #fff; border-radius: 30px; font-size: 13px; font-weight: 600; }
+.filter-btn.active, .filter-btn:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+.project-card { display: block; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+.project-card[hidden] { display: none; }
+.project-preview { background: linear-gradient(135deg, #e9e2d9, #d9cfc2); min-height: 250px; padding: 34px; display: flex; align-items: center; justify-content: center; }
+.browser { width: 100%; max-width: 420px; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 24px 50px -18px rgba(23,18,16,.45); }
+.browser-bar { height: 28px; background: #f1ece5; display: flex; align-items: center; gap: 6px; padding: 0 12px; }
+.browser-bar i { height: 7px; width: 7px; border-radius: 50%; background: #c9c2b9; }
+.browser-content { padding: 28px 24px; min-height: 130px; }
+.browser-content strong { font-size: 22px; line-height: 1.15; display: block; margin-bottom: 10px; letter-spacing: -.02em; }
+.browser-content span { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+.project-info { padding: 28px; }
+.project-info p { font-size: 14.5px; color: var(--muted); }
+.project-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.project-tags span { font-size: 11px; font-weight: 600; padding: 5px 10px; background: var(--soft); border-radius: 4px; }
+.project-info .more { display: inline-block; margin-top: 16px; font-weight: 700; font-size: 14px; color: var(--accent); }
+.group-title { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin: 40px 0 16px; font-weight: 700; }
+.group-title:first-of-type { margin-top: 0; }
+.holds { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.hold b { display: block; font-size: 64px; font-weight: 900; letter-spacing: -.05em; color: var(--accent); line-height: 1; margin-bottom: 8px; }
 
 /* FAQ */
+.faq-list { max-width: 840px; perspective: 900px; }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q { width: 100%; background: none; border: 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; text-align: left; padding: 24px 0; font-weight: 700; font-size: 17px; }
+.faq-q .pm { font-size: 26px; font-weight: 400; color: var(--accent); transition: transform .3s; flex: none; }
+.faq-item.open .pm { transform: rotate(45deg); }
+.faq-a { display: none; padding: 0 40px 24px 0; color: var(--muted); font-size: 15.5px; transform-origin: top; }
+.faq-item.open .faq-a { display: block; animation: flipIn .4s ease; }
+@keyframes flipIn { from { opacity: 0; transform: rotateX(-35deg); } to { opacity: 1; transform: none; } }
 
-.faq-list {
-    max-width: 800px;
-}
+/* ARTICLES */
+.article-links { list-style: none; max-width: 840px; }
+.article-links a { display: flex; justify-content: space-between; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--line); text-decoration: none; font-weight: 600; font-size: 15.5px; transition: color .2s, padding .2s; }
+.article-links a:hover { color: var(--accent); padding-left: 8px; }
+.article-links a span { color: var(--accent); }
 
-.faq-item {
-    border-bottom: 1px solid var(--line);
-}
-
-.faq-question {
-    width: 100%;
-    background: none;
-    border: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-    gap: 20px;
-    padding: 22px 0;
-    font-weight: 700;
-    color: var(--ink);
-}
-
-.faq-question span:last-child {
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--accent);
-}
-
-.faq-answer {
-    display: none;
-    padding: 0 35px 20px 0;
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.faq-item.open .faq-answer {
-    display: block;
-}
+/* TEAM + FACTS */
+.team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.member { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+.avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 20px; margin-bottom: 20px; border: 3px solid var(--accent); }
+.member .role { color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+.member p { font-size: 14px; color: var(--muted); margin: 0; }
+.facts { display: grid; grid-template-columns: 180px 1fr; border-top: 1px solid var(--line); max-width: 760px; }
+.facts dt, .facts dd { padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.facts dt { color: var(--muted); font-weight: 600; }
+.facts a { color: var(--accent); }
 
 /* CONTACT */
-
-.contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+.contact-form { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 34px; }
+.field { margin-bottom: 18px; }
+.field label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 7px; }
+.field input[type=text], .field input[type=email], .field textarea {
+    width: 100%; border: 1px solid #d6ccc1; border-radius: 10px; padding: 13px 15px; background: var(--paper);
 }
+.field textarea { min-height: 140px; resize: vertical; }
+.field input:focus, .field textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.check { display: flex; align-items: center; gap: 10px; font-size: 14px; margin-bottom: 20px; }
+.check input { width: 18px; height: 18px; accent-color: var(--accent); }
+.contact-lines a { color: var(--accent); text-decoration: none; font-weight: 700; font-size: 20px; overflow-wrap: anywhere; }
+.contact-line { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.contact-line small { display: block; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1.4px; margin-bottom: 4px; }
+.note { font-size: 12.5px; color: var(--muted); margin-top: 14px; }
 
-.contact-panel {
-    padding: 30px;
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 7px;
+/* CTA + FOOTER */
+.cta { background: var(--ink); color: #fff; border-radius: 22px; padding: 60px; display: flex; justify-content: space-between; align-items: center; gap: 36px; position: relative; overflow: hidden; }
+.cta::before { content: ""; position: absolute; right: -80px; top: -80px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(216,51,10,.55), transparent 65%); }
+.cta > * { position: relative; }
+.cta h2 { font-size: clamp(28px, 3.4vw, 42px); margin-bottom: 0; max-width: 620px; }
+.cta-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; flex: none; }
+.cta-actions small { color: #c9bfb7; text-align: center; }
+
+footer { background: var(--ink); color: #fff; padding: 64px 0 24px; margin-top: 40px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-bottom: 38px; }
+.footer-description { color: #b9aea5; font-size: 14px; margin-top: 14px; max-width: 320px; }
+.footer-title { color: #a99e95; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+.footer-links a { text-decoration: none; color: #fff; }
+.footer-links a:hover { color: #ff8a6c; }
+.footer-bottom { border-top: 1px solid #3a2e28; padding-top: 22px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: #9a8f86; font-size: 12px; }
+.footer-bottom a { color: #9a8f86; }
+
+.back-top { position: fixed; bottom: 22px; right: 22px; z-index: 40; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--accent); color: #fff; font-size: 18px; box-shadow: 0 10px 26px -8px rgba(216,51,10,.7); display: none; }
+.back-top.visible { display: block; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.no-webgl canvas { display: none; }
+
+@media (max-width: 1040px) {
+    .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--ink); padding: 10px 6% 22px; flex-direction: column; align-items: stretch; border-top: 1px solid #3a2e28; }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 14px 6px; font-size: 16px; }
+    .nav-links a.active::after { display: none; }
+    .mobile-toggle { display: block; }
+    .navbar > .btn { display: none; }
 }
-
-.contact-detail {
-    padding: 18px 0;
-    border-bottom: 1px solid var(--line);
-}
-
-.contact-detail:last-child {
-    border-bottom: 0;
-}
-
-.contact-detail strong {
-    display: block;
-    font-size: 13px;
-    margin-bottom: 4px;
-}
-
-.contact-detail a {
-    color: var(--accent);
-    text-decoration: none;
-    overflow-wrap: anywhere;
-}
-
-.contact-detail p {
-    color: var(--muted);
-    font-size: 13px;
-    margin: 0;
-}
-
-/* CTA AND FOOTER */
-
-.cta {
-    background: #eeede7;
-    padding: 48px;
-    border-radius: 7px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-}
-
-.cta h2 {
-    font-size: clamp(26px, 3vw, 36px);
-    margin-bottom: 12px;
-}
-
-.cta p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 14px;
-}
-
-footer {
-    background: var(--dark);
-    color: white;
-    padding: 50px 0 22px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
-    gap: 40px;
-    padding-bottom: 35px;
-}
-
-.footer-description {
-    color: #bac3c9;
-    font-size: 13px;
-    margin-top: 15px;
-    max-width: 270px;
-}
-
-.footer-title {
-    color: #aeb8be;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-}
-
-.footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-}
-
-.footer-links a,
-.footer-links button {
-    background: none;
-    border: 0;
-    color: white;
-    text-decoration: none;
-    text-align: left;
-    font-size: 13px;
-}
-
-.footer-links a:hover,
-.footer-links button:hover {
-    color: #ff876c;
-}
-
-.footer-bottom {
-    border-top: 1px solid #38434c;
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    flex-wrap: wrap;
-    color: #9faab0;
-    font-size: 11px;
-}
-
-.back-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 20;
-    width: 42px;
-    height: 42px;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    background: white;
-    color: var(--ink);
-    box-shadow: 0 3px 12px #0000000a;
-    display: none;
-}
-
-.back-top.visible {
-    display: block;
-}
-
-:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-}
-
 @media (max-width: 900px) {
-    .nav-links button {
-        padding: 10px 7px;
-        font-size: 11px;
-    }
-
-    .navbar > .btn {
-        display: none;
-    }
-
-    .feature-layout,
-    .banner-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .steps {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .footer-grid > div:first-child {
-        grid-column: 1 / -1;
-    }
+    .split { grid-template-columns: 1fr; gap: 36px; }
+    .cards, .cards.four { grid-template-columns: repeat(2, 1fr); }
+    .team { grid-template-columns: repeat(2, 1fr); }
+    .steps { grid-template-columns: 1fr; }
+    .cta { flex-direction: column; align-items: flex-start; padding: 38px; }
+    .cta-actions { align-self: stretch; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid > div:first-child { grid-column: 1 / -1; }
+    .hero-note { display: none; }
+    .phone-stage { height: 480px; }
 }
-
-@media (max-width: 650px) {
-    .container {
-        width: 88%;
-    }
-
-    .navbar {
-        min-height: 68px;
-    }
-
-    .mobile-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 68px;
-        left: 0;
-        right: 0;
-        background: var(--dark);
-        padding: 10px 6% 20px;
-        flex-direction: column;
-        align-items: stretch;
-        border-top: 1px solid #35404a;
-    }
-
-    .nav-links.open {
-        display: flex;
-    }
-
-    .nav-links button {
-        text-align: left;
-        padding: 13px 10px;
-        font-size: 14px;
-    }
-
-    .nav-links button.active::after {
-        display: none;
-    }
-
-    .hero {
-        min-height: 450px;
-        background-position: 60% center;
-    }
-
-    .hero-inner {
-        padding-top: 65px;
-        padding-bottom: 65px;
-    }
-
-    h1 {
-        letter-spacing: -2px;
-    }
-
-    .section {
-        padding: 62px 0;
-    }
-
-    .features,
-    .cards,
-    .pricing-grid,
-    .project-grid,
-    .steps,
-    .contact-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .feature-layout {
-        gap: 15px;
-    }
-
-    .cta {
-        padding: 28px;
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
-    }
-
-    .price-card {
-        padding: 24px;
-    }
+@media (max-width: 620px) {
+    .section { padding: 68px 0; }
+    .cards, .cards.four, .cards.two, .uf-packs, .holds, .team, .pledges { grid-template-columns: 1fr; }
+    .hero-inner { padding-top: 40px; padding-bottom: 90px; }
+    .hero { align-items: flex-start; }
+    .facts { grid-template-columns: 1fr; }
+    .facts dt { border-bottom: 0; padding-bottom: 0; }
+    .price-hero, .pack, .contact-form { padding: 28px; }
+    .metric { padding: 30px; }
 }
-
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation: none !important;
-        transition: none !important;
-    }
+    *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; }
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<header class="site-header">
     <div class="container navbar">
-
-        <a class="brand" href="#hem" data-page="hem"
-           aria-label="Nätverkstan UF – startsida">
-            <span class="brand-mark">N</span>
-            <span>NÄTVERKSTAN UF</span>
-        </a>
+        <a class="brand" href="#hem" data-page="hem" aria-label="Nätverkstan UF – startsida">Nätverkstan<b>UF</b></a>
 
         <nav class="nav-links" id="navigation" aria-label="Huvudmeny">
-            <button class="active" data-page="hem">Hem</button>
-            <button data-page="tjanster">Tjänster</button>
-            <button data-page="paket">Paket</button>
-            <button data-page="projekt">Projekt</button>
-            <button data-page="om">Om oss</button>
-            <button data-page="kontakt">Kontakt</button>
+            <a class="active" href="#hem" data-page="hem">Hem</a>
+            <a href="#tjanster" data-page="tjanster">Vad vi gör</a>
+            <a href="#pris" data-page="pris">Pris</a>
+            <a href="#uf" data-page="uf">UF-pris</a>
+            <a href="#arbeten" data-page="arbeten">Arbeten</a>
+            <a href="#faq" data-page="faq">Frågor</a>
+            <a href="#om" data-page="om">Om oss</a>
+            <a href="#kontakt" data-page="kontakt">Kontakt</a>
         </nav>
 
-        <a class="btn btn-white btn-small"
-           href="https://natverkstanuf.se"
-           target="_blank" rel="noopener noreferrer">
-            Besök vår hemsida ↗
-        </a>
+        <a class="btn btn-primary btn-small" href="#kontakt" data-page="kontakt">Be om en offert ↗</a>
 
-        <button class="mobile-toggle" id="mobileToggle"
-                aria-expanded="false" aria-controls="navigation">
-            Meny ☰
-        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="navigation">Meny ☰</button>
     </div>
 </header>
 
-
 <main>
 
-<!-- HEM -->
+<!-- ============ HEM ============ -->
 <section class="page active" id="hem">
 
-    <div class="hero">
+    <div class="hero" id="hero">
+        <canvas id="heroCanvas" aria-hidden="true"></canvas>
         <div class="container hero-inner">
             <div class="hero-copy">
-                <div class="eyebrow">Nätverkstan UF · Kungsbacka</div>
+                <div class="eyebrow">Webbyrå i Kungsbacka</div>
 
-                <h1>Hemsidor som skapar <span class="accent">möjligheter.</span></h1>
+                <h1 aria-label="Vi bygger hemsidan som ert arbete förtjänar">
+                    <span class="w" style="--i:0">Vi</span>
+                    <span class="w" style="--i:1">bygger</span>
+                    <span class="w" style="--i:2">hemsidan</span>
+                    <span class="w" style="--i:3">som</span>
+                    <span class="w" style="--i:4">ert</span>
+                    <span class="w accent" style="--i:5">arbete</span>
+                    <span class="w" style="--i:6">förtjänar</span>
+                </h1>
 
-                <p>
-                    Vi hjälper företag att skapa moderna, snygga och
-                    funktionella hemsidor – som gör det enklare för kunder
-                    att hitta, förstå och kontakta er.
+                <p class="lead">
+                    Ett företag bedöms på sin hemsida långt innan någon lyfter luren. Vi bygger hemsidor för
+                    företag i Kungsbacka och närområdet — sidor som blir hittade när kunden söker, och
+                    kontaktade när kunden bestämt sig.
                 </p>
 
                 <div class="hero-actions">
-                    <a class="btn btn-primary"
-                       href="https://natverkstanuf.se"
-                       target="_blank" rel="noopener noreferrer">
-                        Besök vår hemsida ↗
-                    </a>
+                    <a class="btn btn-primary" href="#kontakt" data-page="kontakt">Be om en offert ↗</a>
+                    <a class="btn btn-ghost" href="#tjanster" data-page="tjanster">Se vad som ingår</a>
+                </div>
 
-                    <button class="btn btn-white" data-go="paket">
-                        Se våra paket →
-                    </button>
+                <ul class="hero-facts">
+                    <li>Hemsida från 3 499 kr</li>
+                    <li>Färdig inom två till tre veckor</li>
+                    <li>Ingen bindningstid</li>
+                </ul>
+
+                <div class="hero-contact">
+                    <a href="mailto:kontakt@natverkstanuf.se">kontakt@natverkstanuf.se</a>
+                    <a href="tel:+46766368219">076 636 82 19</a>
+                    <span>Svar inom 24 h, vardagar</span>
                 </div>
             </div>
+        </div>
+        <div class="hero-note">Skisserna är exempel. Varje sida byggs för en enda verksamhet.</div>
+        <div class="scroll-cue" aria-hidden="true"></div>
+    </div>
+
+    <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+            <div class="ticker-half"><span>Sökbarhet</span><span>Mobilanpassning</span><span>Laddtid</span><span>Kontaktvägar</span><span>Publicering</span><span>Överlämning</span><span>Fast pris</span></div>
+            <div class="ticker-half"><span>Sökbarhet</span><span>Mobilanpassning</span><span>Laddtid</span><span>Kontaktvägar</span><span>Publicering</span><span>Överlämning</span><span>Fast pris</span></div>
         </div>
     </div>
 
+    <!-- Att bli hittad -->
     <section class="section">
-        <div class="container feature-layout">
-
-            <div>
-                <div class="eyebrow">Varför en hemsida?</div>
-                <h2>En starkare digital närvaro ger fler möjligheter.</h2>
-                <p>
-                    En professionell hemsida gör det enklare för kunder
-                    att hitta er, förstå ert erbjudande och känna
-                    förtroende för verksamheten.
+        <div class="container split">
+            <div class="reveal">
+                <div class="eyebrow">Att bli hittad</div>
+                <h2>De flesta kunder har redan sökt innan de hör av sig</h2>
+                <p class="muted">
+                    Står ni inte med bland de första svaren är ni sällan med i beslutet heller.
+                    Sökmotoroptimering handlar inte om knep, utan om att sidan är byggd så att en sökmotor
+                    kan läsa den och förstå vem ni är till för.
                 </p>
-                <button class="btn btn-outline" data-go="tjanster">
-                    Läs om våra tjänster →
-                </button>
+                <ul class="ticks">
+                    <li>Egen titel och beskrivning på varje sida — skriven för människan, läsbar för sökmotorn.</li>
+                    <li>Rubriker och företagsuppgifter uppmärkta enligt standard, så att er ort och er tjänst hör ihop.</li>
+                    <li>Sitemap och robots.txt färdiga — sidan kan indexeras samma dag som den publiceras.</li>
+                </ul>
+                <p class="muted">Vi lovar inte förstaplatsen på Google. Det gör ingen som kan sitt arbete. Men sidan får allt som krävs för att kunna ta sig dit.</p>
             </div>
 
-            <div class="features">
-                <article class="feature">
-                    <div class="feature-icon">▣</div>
-                    <h3>Modern design</h3>
-                    <p>En genomtänkt hemsida som passar ert företag och era kunder.</p>
-                </article>
-
-                <article class="feature">
-                    <div class="feature-icon">▯</div>
-                    <h3>Mobilanpassning</h3>
-                    <p>En layout som anpassar sig efter mobil, surfplatta och dator.</p>
-                </article>
-
-                <article class="feature">
-                    <div class="feature-icon">⌕</div>
-                    <h3>Grundläggande SEO</h3>
-                    <p>Vi hjälper till med grunderna för att sökmotorer ska förstå sidan.</p>
-                </article>
-
-                <article class="feature">
-                    <div class="feature-icon">↗</div>
-                    <h3>Personlig service</h3>
-                    <p>En tydlig kontakt genom processen och hjälp vid överlämning.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="section dark-banner">
-        <div class="container banner-grid">
-            <div>
-                <div class="eyebrow">Våra tjänster</div>
-                <h2>Vi bygger hemsidor som gör skillnad.</h2>
-                <p>
-                    Från första idén till publicerad webbplats.
-                    Vi anpassar upplägget efter verksamheten,
-                    innehållet och era behov.
-                </p>
-                <button class="btn btn-white" data-go="tjanster">
-                    Så arbetar vi →
-                </button>
-            </div>
-
-            <div class="banner-statements">
-                <div class="banner-statement">
-                    <span>01. Design och struktur</span>
-                    <span>↗</span>
-                </div>
-                <div class="banner-statement">
-                    <span>02. Innehåll och funktion</span>
-                    <span>↗</span>
-                </div>
-                <div class="banner-statement">
-                    <span>03. Publicering och överlämning</span>
-                    <span>↗</span>
+            <div class="reveal" style="--d:.1s">
+                <div class="serp tilt">
+                    <div class="serp-q pop-2">hemsida till företag kungsbacka</div>
+                    <div class="serp-r"><strong>Gör hemsidan själv med en färdig mall</strong><small>Annons</small></div>
+                    <div class="serp-r"><strong>Webbyråer i Halland</strong><small>Branschregister</small></div>
+                    <div class="serp-r"><strong>Vad kostar en hemsida egentligen?</strong><small>Forumtråd</small></div>
+                    <div class="serp-r hit pop">
+                        <em>1</em><strong>Nätverkstan UF — vi bygger hemsidor åt företag</strong>
+                        <small>natverkstanuf.se</small>
+                        En hemsida behöver inte kosta mer än 3 499 kr. Färdig på två till tre veckor.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Laddtid -->
+    <section class="section soft">
+        <div class="container split">
+            <div class="reveal">
+                <div class="metric tilt">
+                    <div class="eyebrow pop-2">Laddtid · den här sidan, mätt i din webbläsare</div>
+                    <div class="big pop"><span id="fcp">0,00</span><small>s</small></div>
+                    <p>till läsbar text. Siffran mäts live när sidan laddas.</p>
+                </div>
+            </div>
+            <div class="reveal" style="--d:.1s">
+                <div class="eyebrow">Laddtid</div>
+                <h2>Tålamodet är kortare än man tror</h2>
+                <p class="muted">
+                    En sida som dröjer tappar besökaren innan den hunnit visa vad ni gör. Därför bygger vi
+                    lätt: komprimerade bilder, ingen oanvänd kod, inga tunga ramverk. Sidan ska visa sig
+                    direkt — också på mobilt nät en bit utanför tätorten.
+                </p>
+                <ul class="ticks">
+                    <li>Målet är att sidan är läsbar på under en sekund.</li>
+                    <li>Bilder levereras i den storlek skärmen faktiskt behöver, inte större.</li>
+                    <li>Inget besökaren måste vänta in innan innehållet går att läsa.</li>
+                </ul>
+                <p class="muted">Laddtiden är dessutom något Google väger in. Det ni vinner i tålamod vinner ni i synlighet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobilen först (3D-telefon) -->
+    <section class="section">
+        <div class="container split">
+            <div class="reveal">
+                <div class="eyebrow">Mobilen först</div>
+                <h2>Fler än varannan besökare håller sidan i handen</h2>
+                <p class="muted">
+                    En sida som kräver zoomning i telefonen tappar läsaren innan de kommit till saken.
+                    Vi ritar därför sidan i mobilstorlek först och bygger ut den mot dator, inte tvärtom.
+                </p>
+                <ul class="ticks">
+                    <li>Text som går att läsa utan att zooma, och knappar som går att träffa med tummen.</li>
+                    <li>Ingen sidledes scroll och inget innehåll som hamnar utanför skärmen.</li>
+                    <li>Provkörd i riktiga mobilstorlekar innan sidan lämnas över.</li>
+                </ul>
+                <div class="phone-spec"><span>Brödtext <b>16 px</b></span><span>Knappyta <b>48 px</b></span></div>
+            </div>
+            <div class="phone-stage reveal" id="phoneStage" style="--d:.1s">
+                <canvas id="phoneCanvas" aria-label="Interaktiv 3D-modell av en mobil som visar Nätverkstans hemsida" role="img"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Från besök till samtal -->
+    <section class="section dark">
+        <div class="container split top">
+            <div class="reveal">
+                <div class="eyebrow">Från besök till samtal</div>
+                <h2>Det sista steget är det som avgör affären</h2>
+                <p>
+                    En besökare som är övertygad men inte hittar hur man hör av sig är en kund ni aldrig får
+                    veta att ni hade. Formuläret ska vara kort nog att orka fylla i, numret ska gå att trycka
+                    på, och det som skickas ska hamna i er inkorg.
+                </p>
+                <ul class="ticks">
+                    <li>Formuläret frågar bara efter det vi behöver för att kunna svara.</li>
+                    <li>Varje inskickat meddelande provas skarpt innan sidan lämnas över.</li>
+                    <li>Går något ändå fel öppnas besökarens e-post färdigifylld, så att förfrågan inte tappas bort.</li>
+                </ul>
+            </div>
+            <div class="reveal" style="--d:.1s">
+                <p style="font-size:17px;color:#fff">
+                    Ett formulär är sällan det man tänker på när man beställer en hemsida. Ofta är det det
+                    enda som står mellan en intresserad besökare och ett samtal.
+                </p>
+                <a class="btn btn-primary" href="#kontakt" data-page="kontakt">Hör av er ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingår alltid -->
     <section class="section">
         <div class="container">
-            <div class="section-heading">
-                <div class="eyebrow">Våra paket</div>
-                <h2>Välj det som passar ert företag.</h2>
-                <p>
-                    Tydliga engångspriser och olika omfattning
-                    beroende på hur mycket er hemsida behöver innehålla.
-                </p>
+            <div class="section-head reveal">
+                <div class="eyebrow">Ingår alltid</div>
+                <h2>Resten är sådant vi anser hör till</h2>
+                <p>Vi har ingen prislista med tillval. Det nedan följer med i varje uppdrag, oavsett hur omfattande sidan blir.</p>
             </div>
-
-            <div class="pricing-grid">
-
-                <article class="price-card">
-                    <div class="eyebrow">Start</div>
-                    <h3>En tydlig grund</h3>
-                    <div class="price">3 490 kr</div>
-                    <div class="price-caption">Engångspris</div>
-                    <p class="muted">För företag som behöver en enkel, professionell hemsida.</p>
-                    <button class="btn btn-outline" data-go="paket">Jämför paket</button>
-                </article>
-
-                <article class="price-card featured">
-                    <div class="eyebrow">Pro</div>
-                    <h3>Mer utrymme</h3>
-                    <div class="price">5 990 kr</div>
-                    <div class="price-caption">Engångspris</div>
-                    <p>För företag som behöver presentera fler delar av verksamheten.</p>
-                    <button class="btn" data-go="paket">Jämför paket</button>
-                </article>
-
-                <article class="price-card">
-                    <div class="eyebrow">Premium</div>
-                    <h3>En större helhet</h3>
-                    <div class="price">8 990 kr</div>
-                    <div class="price-caption">Engångspris</div>
-                    <p class="muted">För företag som behöver en mer omfattande webbplats.</p>
-                    <button class="btn btn-outline" data-go="paket">Jämför paket</button>
-                </article>
-
+            <div class="cards stagger">
+                <article class="card tilt"><span class="num pop-2">01</span><h3 class="pop">Design efter er verksamhet</h3><p class="pop-2">Färg, form och typsnitt väljs utifrån vad ni gör och vem ni vänder er till — inte utifrån en köpt mall.</p></article>
+                <article class="card tilt"><span class="num pop-2">02</span><h3 class="pop">Hjälp med texterna</h3><p class="pop-2">De flesta fastnar där. Ge oss stolpar, så skriver vi förslag som ni får ändra i.</p></article>
+                <article class="card tilt"><span class="num pop-2">03</span><h3 class="pop">Domän och webbhotell</h3><p class="pop-2">Vi hjälper er välja, och flyttar en befintlig domän utan att er e-post slutar fungera.</p></article>
+                <article class="card tilt"><span class="num pop-2">04</span><h3 class="pop">Säker uppkoppling</h3><p class="pop-2">Sidan publiceras på https, som både besökare och sökmotorer numera förutsätter.</p></article>
+                <article class="card tilt"><span class="num pop-2">05</span><h3 class="pop">Genomgång vid överlämning</h3><p class="pop-2">Vi går igenom sidan tillsammans, så att ni vet vad ni fått och hur ni ändrar det.</p></article>
+                <article class="card tilt"><span class="num pop-2">06</span><h3 class="pop">Rättning efteråt</h3><p class="pop-2">Blir något inte som ni tänkt er justerar vi det utan att fakturera för det.</p></article>
             </div>
-            <p class="disclaimer">
-                Domän och webbhotell tillkommer. Exakt omfattning
-                bestäms utifrån valt paket och överenskommelse.
-            </p>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section soft">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="eyebrow">Så går arbetet till</div>
+                <h2>Från första samtalet till publicerad sida</h2>
+            </div>
+            <div class="steps stagger">
+                <article class="step"><span class="n">01</span><h3>Samtalet</h3><p>Ett kort samtal om verksamheten och vad sidan ska uträtta. Sedan får ni ett fast pris skriftligt, innan arbetet börjar.</p></article>
+                <article class="step"><span class="n">02</span><h3>Arbetet</h3><p>Ni följer sidan medan den växer fram och säger till om det som ska ändras. Något tekniskt behöver ni aldrig befatta er med.</p></article>
+                <article class="step"><span class="n">03</span><h3>Överlämningen</h3><p>Sidan publiceras på er adress, kontrolleras i telefon och dator och lämnas över. Därefter är den er — utan abonnemang, utan bindningstid.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arbeten -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="eyebrow">Arbeten</div>
+                <h2>Uppdragen ser olika ut, arbetssättet är detsamma</h2>
+            </div>
+            <div class="cards two stagger">
+                <a class="project-card tilt" href="https://natverkstanuf.se/arbeten/grappasgr-se" target="_blank" rel="noopener noreferrer">
+                    <div class="project-preview"><div class="browser pop"><div class="browser-bar"><i></i><i></i><i></i></div><div class="browser-content"><strong>Gräppås<br>Golfrestaurang</strong><span>Restaurang och café</span></div></div></div>
+                    <div class="project-info">
+                        <div class="eyebrow">Restaurang och café</div>
+                        <h3>Gräppås Golfrestaurang</h3>
+                        <p>Vi uppdaterade Gräppås Golfrestaurangs hemsida med en modernare design och tydligare struktur som gör det enklare för besökare att hitta information, se restaurangen och ta kontakt.</p>
+                        <div class="project-tags"><span>Webbdesign</span><span>Restaurang</span><span>Mobilanpassning</span><span>Redesign</span></div>
+                        <span class="more">Läs om uppdraget ↗</span>
+                    </div>
+                </a>
+                <div class="card tilt" style="display:flex;flex-direction:column;justify-content:center">
+                    <span class="num pop-2">PRIS</span>
+                    <h3 class="pop" style="font-size:28px">En hemsida behöver inte kosta mer än</h3>
+                    <div class="pop" style="font-size:56px;font-weight:900;letter-spacing:-.05em;color:var(--accent);line-height:1.1;margin:8px 0 14px">Från 3 499 kr</div>
+                    <p class="pop-2">Ingen moms avdrages. Vad som påverkar summan säger vi innan vi börjar, aldrig efteråt.</p>
+                    <div class="pop-2" style="margin-top:22px"><a class="btn btn-dark" href="#pris" data-page="pris">Läs mer om priset →</a></div>
+                </div>
+            </div>
+            <p style="margin-top:28px"><a class="btn btn-outline" href="#arbeten" data-page="arbeten">Se fler arbeten →</a></p>
         </div>
     </section>
 
     <section class="section" style="padding-top:0">
         <div class="container">
-            <div class="cta">
+            <div class="cta reveal">
                 <div>
                     <div class="eyebrow">Nästa steg</div>
-                    <h2>Är det dags att förbättra er hemsida?</h2>
-                    <p>Upptäck Nätverkstan och läs mer om hur vi arbetar.</p>
+                    <h2>Berätta om verksamheten, så återkommer vi med ett förslag</h2>
                 </div>
-                <a class="btn btn-primary"
-                   href="https://natverkstanuf.se"
-                   target="_blank" rel="noopener noreferrer">
-                    Till natverkstanuf.se ↗
-                </a>
+                <div class="cta-actions">
+                    <a class="btn btn-primary" href="#kontakt" data-page="kontakt">Kontakta oss ↗</a>
+                    <small>kontakt@natverkstanuf.se</small>
+                </div>
             </div>
         </div>
     </section>
 </section>
 
 
-<!-- TJÄNSTER -->
+<!-- ============ VAD VI GÖR ============ -->
 <section class="page" id="tjanster">
     <section class="section">
         <div class="container">
-            <div class="section-heading">
-                <div class="eyebrow">Tjänster</div>
-                <h1>Från idé till <span class="accent">färdig hemsida.</span></h1>
-                <p>
-                    Vi hjälper företag genom hela processen och anpassar
-                    arbetet efter verksamhetens behov.
+            <div class="section-head">
+                <div class="eyebrow">Vad vi gör</div>
+                <h1>Vi har valt att göra <em>en sak</em>, och göra den ordentligt</h1>
+                <p style="margin-top:22px">
+                    Vi bygger hemsidor för småföretag i Kungsbacka och närområdet. Inte marknadsföring, inte
+                    appar, inte tio tjänster till som vi ändå inte skulle hinna göra bra. Varje sida vi lämnar
+                    över är byggd av någon som gjort samma sak förut.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#kontakt" data-page="kontakt">Be om en offert ↗</a>
+                    <a class="btn btn-outline" href="#pris" data-page="pris">Vad kostar det?</a>
+                </div>
+            </div>
+            <p class="muted"><strong>Ny hemsida</strong> · <strong>Första hemsidan</strong> · <strong>Omgörning av äldre sida</strong> — med mobilanpassning, sökbarhet och publicering.</p>
+        </div>
+    </section>
+
+    <section class="section soft">
+        <div class="container split">
+            <div class="reveal">
+                <div class="eyebrow">Intrycket</div>
+                <h2>Sidan är ofta det första kunden ser av er</h2>
+                <p class="muted">
+                    De flesta har bildat sig en uppfattning innan de talat med er. En sida som ser genomtänkt ut
+                    säger något om hur ni utför ert arbete i övrigt — en som inte gör det säger tyvärr också något.
+                    Därför börjar vi i vad ni gör, inte i ett färdigt utseende.
                 </p>
             </div>
-
-            <div class="cards">
-                <article class="card">
-                    <div class="card-number">01 / DESIGN</div>
-                    <h3>Design och struktur</h3>
-                    <p>
-                        Vi utformar en tydlig layout med färger, typografi
-                        och struktur som passar företagets identitet.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <div class="card-number">02 / INNEHÅLL</div>
-                    <h3>Text och presentation</h3>
-                    <p>
-                        Vi hjälper till att strukturera innehållet och
-                        presentera verksamheten på ett tydligt sätt.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <div class="card-number">03 / UTVECKLING</div>
-                    <h3>Webbutveckling</h3>
-                    <p>
-                        Vi bygger hemsidor som anpassar sig efter
-                        olika skärmstorlekar och enheter.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <div class="card-number">04 / SYNLIGHET</div>
-                    <h3>Grundläggande SEO</h3>
-                    <p>
-                        Vi arbetar med bland annat sidtitlar, beskrivningar
-                        och en tydlig innehållsstruktur.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <div class="card-number">05 / PUBLICERING</div>
-                    <h3>Lansering</h3>
-                    <p>
-                        Vi hjälper till med publicering och genomgång
-                        av den färdiga hemsidan.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <div class="card-number">06 / EFTERÅT</div>
-                    <h3>Hjälp och uppdateringar</h3>
-                    <p>
-                        Vi kan hjälpa till med överenskomna ändringar
-                        och uppdateringar efter lansering.
-                    </p>
-                </article>
+            <div class="reveal" style="--d:.1s">
+                <ul class="ticks">
+                    <li>Färg, form och typsnitt väljs efter verksamheten — och efter er logotyp om ni har en.</li>
+                    <li>Har ni bra bilder använder vi dem. Saknas de bygger vi sidan i form och färg i stället, vilket ofta blir stilrenare än svaga bilder.</li>
+                    <li>Ingen köpt mall. Varje sida ritas för det företag den ska föreställa.</li>
+                </ul>
+                <p class="muted">Vi gör hellre en enkel sida ordentligt än en påkostad sida halvvägs.</p>
             </div>
         </div>
     </section>
 
-    <section class="section" style="background:#f0f0ec">
+    <section class="section">
         <div class="container">
-            <div class="section-heading">
-                <div class="eyebrow">Arbetsprocess</div>
-                <h2>En tydlig process. Inga onödiga omvägar.</h2>
+            <div class="section-head reveal">
+                <div class="eyebrow">Det här ingår</div>
+                <h2>Åtta saker vi utför i varje uppdrag</h2>
+                <p>Ingen prislista med tillval och inga överraskningar på fakturan. Nedanstående följer med oavsett hur omfattande sidan blir.</p>
             </div>
+            <div class="cards four stagger">
+                <article class="card tilt"><span class="num pop-2">01</span><h3 class="pop">Design efter er verksamhet</h3><p class="pop-2">Färg, form och typsnitt väljs efter vad ni gör och vem ni vänder er till — och efter er logotyp om ni har en. Resultatet ska se ut som ert företag, inte som en mall.</p></article>
+                <article class="card tilt"><span class="num pop-2">02</span><h3 class="pop">Hjälp med texterna</h3><p class="pop-2">De flesta fastnar på texten. Ge oss stolpar, så skriver vi förslag som ni får ändra i. Tydlig text säljer bättre än vacker form utan.</p></article>
+                <article class="card tilt"><span class="num pop-2">03</span><h3 class="pop">Mobilanpassning</h3><p class="pop-2">Sidan ritas i mobilstorlek först och byggs ut mot dator. Vi provkör i riktiga mobilstorlekar: knappar ska gå att träffa med tummen, text att läsa utan att zooma.</p></article>
+                <article class="card tilt"><span class="num pop-2">04</span><h3 class="pop">Grundläggande sökmotoroptimering</h3><p class="pop-2">Egna sidtitlar och beskrivningar, en rubrikstruktur sökmotorn kan följa, alt-texter på bilder, sitemap.xml och robots.txt. Grunden för att kunna synas på rätt sökningar.</p></article>
+                <article class="card tilt"><span class="num pop-2">05</span><h3 class="pop">Snabb laddning</h3><p class="pop-2">Komprimerade bilder, inga tunga ramverk, ingen oanvänd kod. En sida som visar sig direkt tappar färre besökare och bedöms bättre av Google.</p></article>
+                <article class="card tilt"><span class="num pop-2">06</span><h3 class="pop">Kontaktvägar som håller</h3><p class="pop-2">Formulär som verkligen hamnar i er inkorg, klickbara nummer och adresser, karta och öppettider där det behövs. Vi provar skarpt att allt går fram innan sidan lämnas över.</p></article>
+                <article class="card tilt"><span class="num pop-2">07</span><h3 class="pop">Publicering och domän</h3><p class="pop-2">Vi hjälper er välja domän och webbhotell, lägger upp sidan och ser till att den går på https. Har ni redan en domän flyttar vi den utan att er e-post slutar fungera.</p></article>
+                <article class="card tilt"><span class="num pop-2">08</span><h3 class="pop">Genomgång vid överlämning</h3><p class="pop-2">Vi går igenom sidan tillsammans, så att ni vet vad ni fått och hur ni ändrar det. Därefter är den er — utan abonnemang, utan bindningstid.</p></article>
+            </div>
+        </div>
+    </section>
 
-            <div class="steps">
-                <article class="step">
-                    <div class="step-number">STEG 01</div>
-                    <h3>Vi pratar</h3>
-                    <p>Vi går igenom verksamheten, behoven och målet med hemsidan.</p>
-                </article>
-                <article class="step">
-                    <div class="step-number">STEG 02</div>
-                    <h3>Vi planerar</h3>
-                    <p>Vi bestämmer omfattning, innehåll och pris innan arbetet börjar.</p>
-                </article>
-                <article class="step">
-                    <div class="step-number">STEG 03</div>
-                    <h3>Vi bygger</h3>
-                    <p>Vi tar fram hemsidan och stämmer av viktiga delar under arbetet.</p>
-                </article>
-                <article class="step">
-                    <div class="step-number">STEG 04</div>
-                    <h3>Vi publicerar</h3>
-                    <p>Hemsidan färdigställs och gås igenom inför överlämningen.</p>
-                </article>
+    <section class="section dark">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="eyebrow">Från er</div>
+                <h2>Tre saker, sedan sköter vi resten</h2>
+                <p>Ni ska inte behöva sätta er in i något tekniskt för att beställa en hemsida. Det här är allt vi behöver för att komma i gång.</p>
             </div>
+            <div class="cards stagger">
+                <article class="card tilt"><h3 class="pop">Er logotyp och era bilder</h3><p class="pop-2">Finns det bilder på verksamheten blir sidan bättre. Saknas de löser vi det med form och färg i stället — det går alldeles utmärkt.</p></article>
+                <article class="card tilt"><h3 class="pop">Vad ni gör, med era egna ord</h3><p class="pop-2">Stolpar räcker gott. Vi skriver förslag utifrån dem, och ni ändrar det som inte låter som ni.</p></article>
+                <article class="card tilt"><h3 class="pop">En person att stämma av med</h3><p class="pop-2">Någon som kan ge besked. Det är den enskilt viktigaste orsaken till att ett uppdrag blir färdigt i tid.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="eyebrow">Så går arbetet till</div>
+                <h2>Från första samtalet till publicerad sida</h2>
+            </div>
+            <div class="steps stagger">
+                <article class="step"><span class="n">01</span><h3>Samtalet</h3><p>Ett kort samtal om verksamheten och vad sidan ska uträtta. Ni får ett fast pris skriftligt innan något arbete påbörjas.</p></article>
+                <article class="step"><span class="n">02</span><h3>Arbetet</h3><p>Ni följer sidan medan den växer fram och säger till om det som ska ändras. Vi justerar tills den känns som er.</p></article>
+                <article class="step"><span class="n">03</span><h3>Överlämningen</h3><p>Sidan publiceras, kontrolleras i telefon och dator och lämnas över. Därefter äger ni den.</p></article>
+            </div>
+            <p style="margin-top:40px;max-width:720px"><strong>Behöver ni något utöver en hemsida?</strong> Fråga oss ändå. Kan vi lösa det säger vi det, och kan vi inte det säger vi hellre det rakt ut än lovar något vi inte kan hålla.</p>
+        </div>
+    </section>
+
+    <section class="section soft">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="eyebrow">Läs mer</div>
+                <h2>Artiklar från Nätverkstan</h2>
+            </div>
+            <ul class="article-links">
+                <li><a href="https://natverkstanuf.se/artiklar/hemsida-eller-instagram" target="_blank" rel="noopener noreferrer">Räcker Instagram i stället för en hemsida? Siffrorna, och när det faktiskt gör det <span>→</span></a></li>
+                <li><a href="https://natverkstanuf.se/artiklar/synas-pa-google-lokalt" target="_blank" rel="noopener noreferrer">Hur syns företaget när någon söker lokalt? Det ni kan göra själva <span>→</span></a></li>
+                <li><a href="https://natverkstanuf.se/artiklar/wordpress-eller-handkodad-hemsida" target="_blank" rel="noopener noreferrer">WordPress eller handkodad sida? Vad skillnaden betyder för underhåll, säkerhet och kostnad <span>→</span></a></li>
+                <li><a href="https://natverkstanuf.se/artiklar/hur-lang-tid-tar-en-hemsida" target="_blank" rel="noopener noreferrer">Hur lång tid tar det att få en hemsida? Byråernas tidsangivelser, med källor <span>→</span></a></li>
+            </ul>
         </div>
     </section>
 </section>
 
 
-<!-- PAKET -->
-<section class="page" id="paket">
+<!-- ============ PRIS ============ -->
+<section class="page" id="pris">
     <section class="section">
         <div class="container">
-            <div class="section-heading">
-                <div class="eyebrow">Priser</div>
-                <h1>Rätt lösning för <span class="accent">ert företag.</span></h1>
-                <p>
-                    Vi arbetar med fasta paketpriser. Vi går igenom
-                    omfattningen tillsammans innan vi sätter igång.
+            <div class="section-head">
+                <div class="eyebrow">Priset</div>
+                <h1>En hemsida behöver inte kosta <em>mer</em> än 3 499 kronor</h1>
+                <p style="margin-top:22px">
+                    Så mycket kostar en färdig sida hos oss. Efter ett kort samtal får ni ett fast pris
+                    skriftligt — tackar ni ja är det den summan som gäller, oavsett hur lång tid arbetet tar för oss.
                 </p>
             </div>
 
-            <div class="pricing-grid">
-
-                <article class="price-card">
-                    <div class="eyebrow">Start</div>
-                    <h3>En enkel start</h3>
-                    <div class="price">3 490 kr</div>
-                    <div class="price-caption">Engångspris</div>
-                    <ul>
-                        <li>Grundläggande hemsida</li>
-                        <li>Mobilanpassad design</li>
-                        <li>Kontaktmöjligheter</li>
-                        <li>Grundläggande SEO</li>
-                        <li>Publicering och överlämning</li>
-                    </ul>
-                    <button class="btn btn-outline" data-contact="Start">
-                        Fråga om Start
-                    </button>
-                </article>
-
-                <article class="price-card featured">
-                    <div class="eyebrow">Pro</div>
-                    <h3>Mer innehåll</h3>
-                    <div class="price">5 990 kr</div>
-                    <div class="price-caption">Engångspris</div>
-                    <ul>
-                        <li>Allt i Start</li>
-                        <li>Fler sidor och innehåll</li>
-                        <li>Mer utrymme för tjänster</li>
-                        <li>Utökad presentation</li>
-                        <li>Publicering och överlämning</li>
-                    </ul>
-                    <button class="btn" data-contact="Pro">
-                        Fråga om Pro
-                    </button>
-                </article>
-
-                <article class="price-card">
-                    <div class="eyebrow">Premium</div>
-                    <h3>Större webbplats</h3>
-                    <div class="price">8 990 kr</div>
-                    <div class="price-caption">Engångspris</div>
-                    <ul>
-                        <li>Allt i Pro</li>
-                        <li>Mer omfattande innehåll</li>
-                        <li>Fler möjligheter till funktioner</li>
-                        <li>Anpassning efter projektet</li>
-                        <li>Publicering och överlämning</li>
-                    </ul>
-                    <button class="btn btn-outline" data-contact="Premium">
-                        Fråga om Premium
-                    </button>
-                </article>
+            <div class="split top">
+                <div class="reveal">
+                    <div class="price-hero tilt">
+                        <div class="label pop-2">Vad ni får</div>
+                        <h3 class="pop-2" style="margin-top:10px">Hela sidan, publicerad och klar</h3>
+                        <div class="amount pop"><small style="font-size:.28em;letter-spacing:0">Från</small> <span>3 499</span> kr</div>
+                        <small class="pop-2">Ingen moms avdrages</small>
+                        <div class="pledges pop-2">
+                            <div><b>Fast pris.</b>Summan i offerten ändras inte under arbetet.</div>
+                            <div><b>Inget abonnemang till oss.</b>Sidan är er när den är färdig.</div>
+                            <div><b>Inga tillägg.</b>Mobil, sökbarhet och publicering ingår.</div>
+                            <div><b>Betalning när ni är nöjda.</b>Vi tar inget förskott.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal" style="--d:.1s">
+                    <p class="muted">
+                        Hittad i en sökning, läsbar i telefonen och gjord så att kunden hör av sig. Vad som påverkar
+                        summan står längre ner, och priset får ni skriftligt innan vi börjar — detsamma i Kungsbacka som i Göteborg.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#kontakt" data-page="kontakt">Få ert pris ↗</a>
+                        <a class="btn btn-outline" href="#tjanster" data-page="tjanster">Se vad som ingår</a>
+                    </div>
+                    <p style="margin-top:32px;padding:22px;background:var(--soft);border-radius:var(--radius)">
+                        <strong>Driver ni ett UF-företag?</strong> Då finns ett eget UF-paket: en skräddarsydd hemsida
+                        för 999 kr, eller 1 499 kr publicerad på er egen domän.
+                        <a href="#uf" data-page="uf" style="color:var(--accent);font-weight:700">Hemsida för UF-företag →</a>
+                    </p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <p class="disclaimer">
-                Paketbeskrivningarna ovan är en översikt och inte en
-                uttömmande funktionsspecifikation. Bekräfta exakt
-                innehåll skriftligen innan beställning.
-                Domän och webbhotell betalas separat av kunden.
-            </p>
+    <section class="section soft">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="eyebrow">Öppet kort</div>
+                <h2>Fyra saker avgör vad er sida kostar</h2>
+                <p>Vi håller ingenting dolt. Det här är precis vad vi väger in när vi räknar på ett uppdrag.</p>
+            </div>
+            <div class="cards four stagger">
+                <article class="card tilt"><span class="num pop-2">01</span><h3 class="pop">Hur många sidor det rör sig om</h3><p class="pop-2">En sida som rymmer allt kostar mindre än en sajt med egna undersidor. De flesta företag är väl betjänta av tre till sex sidor.</p></article>
+                <article class="card tilt"><span class="num pop-2">02</span><h3 class="pop">Hur mycket text vi skriver</h3><p class="pop-2">Har ni färdiga texter går arbetet snabbt. Skriver vi allt från grunden tar det längre tid — men blir oftast bättre, eftersom texten då skrivs för sidan.</p></article>
+                <article class="card tilt"><span class="num pop-2">03</span><h3 class="pop">Bilder och underlag</h3><p class="pop-2">Finns det användbara bilder använder vi dem. Saknas de bygger vi sidan i form och färg — mer designarbete, men ofta ett lugnare resultat.</p></article>
+                <article class="card tilt"><span class="num pop-2">04</span><h3 class="pop">Funktioner utöver det vanliga</h3><p class="pop-2">Bokning, nyhetsbrev eller flera språk tillkommer. Ligger något utanför vad vi kan lova säger vi det rakt ut.</p></article>
+            </div>
+            <p style="margin-top:34px;max-width:760px"><strong>Varför står inte hela prislistan här?</strong> För att en ärlig siffra förutsätter att vi vet vad ni behöver. Ett samtal på tio minuter räcker. Därefter får ni priset skriftligt, utan att ni förbinder er till någonting.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="eyebrow">Om priset</div>
+                <h2>Frågor vi får återkommande</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Kostar det något att fråga?</span><span class="pm">+</span></button><div class="faq-a">Nej. Samtalet, genomgången och offerten är kostnadsfria, och ni förbinder er inte till något genom att höra av er.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Tillkommer det något efteråt?</span><span class="pm">+</span></button><div class="faq-a">Inte från oss. Domän och webbhotell betalar ni direkt till leverantören — vanligtvis några hundralappar om året — och vi hjälper er välja så enkelt och billigt som möjligt.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Vad händer om vi vill ändra något senare?</span><span class="pm">+</span></button><div class="faq-a">Hör av er, så säger vi vad det kostar innan vi gör något. Mindre justeringar i anslutning till lanseringen rättar vi utan att fakturera för dem.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>När sker betalningen?</span><span class="pm">+</span></button><div class="faq-a">När sidan är färdig och ni är nöjda. Vi tar inget förskott och fakturerar ingenting under arbetets gång.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Äger vi sidan efteråt?</span><span class="pm">+</span></button><div class="faq-a">Ja. Sidan, texterna och domänen är era. Ni är aldrig bundna till oss och kan när som helst ta med er allt någon annanstans.</div></div>
+            </div>
+            <ul class="article-links" style="margin-top:40px">
+                <li><a href="https://natverkstanuf.se/artiklar/vad-kostar-en-hemsida-2026" target="_blank" rel="noopener noreferrer">Vad kostar en hemsida hos andra? Marknadens priser med källor <span>→</span></a></li>
+                <li><a href="https://natverkstanuf.se/artiklar/vad-kostar-en-hemsida-per-ar" target="_blank" rel="noopener noreferrer">Vad kostar en hemsida per år? Domän, webbhotell och underhåll, med källor <span>→</span></a></li>
+            </ul>
         </div>
     </section>
 
     <section class="section" style="padding-top:0">
         <div class="container">
-            <div class="section-heading">
-                <div class="eyebrow">Vanliga frågor</div>
-                <h2>Det du behöver veta.</h2>
+            <div class="cta reveal">
+                <div><div class="eyebrow">Nästa steg</div><h2>Tio minuter, sedan vet ni vad det kostar</h2></div>
+                <div class="cta-actions"><a class="btn btn-primary" href="#kontakt" data-page="kontakt">Be om en offert ↗</a><small>kontakt@natverkstanuf.se</small></div>
             </div>
+        </div>
+    </section>
+</section>
 
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Vad kostar en hemsida?</span>
-                        <span>+</span>
-                    </button>
-                    <div class="faq-answer">
-                        Våra ordinarie paket börjar på 3 490 kr.
-                        Det slutliga upplägget beror på vilket paket
-                        och vilken omfattning vi kommer överens om.
-                    </div>
+
+<!-- ============ UF ============ -->
+<section class="page" id="uf">
+    <section class="section">
+        <div class="container">
+            <div class="section-head">
+                <div class="eyebrow">För UF-företag</div>
+                <h1>Hemsidor för <em>UF-företag</em></h1>
+                <p style="margin-top:22px">
+                    Som ett registrerat UF-företag vill vi även hjälpa ditt UF att lyckas detta läsår! Vi erbjuder
+                    högkvalitativa hemsidor som hjälper ert företag att synas bättre, vilket ökar chansen till högre omsättning.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#uf-paket" onclick="document.getElementById('uf-paket').scrollIntoView({behavior:'smooth'});return false;">Jämför paketen ↓</a>
+                    <a class="btn btn-outline" href="#kontakt" data-page="kontakt">Kontakta oss</a>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Äger företaget sin hemsida?</span>
-                        <span>+</span>
-                    </button>
-                    <div class="faq-answer">
-                        Vårt upplägg är att kunden ska äga sin webbplats.
-                        Ägande, åtkomst och leverans av filer eller
-                        konton ska tydligt framgå av överenskommelsen.
-                    </div>
+    <section class="section soft">
+        <div class="container split">
+            <div class="reveal">
+                <div class="eyebrow">Startkapitalet</div>
+                <h2>Av ett UF-företag, <em>för</em> UF-företag</h2>
+                <p class="muted">Men givetvis förstår vi att startkapitalet inte är det högsta, och därför kan vi stolt presentera vårt speciella UF-paket.</p>
+                <ul class="ticks">
+                    <li>En skräddarsydd hemsida för 999 kr — eller 1 499 kr publicerad på ert företags egen domän.</li>
+                    <li>Bilder, kontaktuppgifter, om oss, vad ni gör med mera.</li>
+                    <li>Gratis konsultation och rådgivning, oavsett vilket paket ni väljer.</li>
+                </ul>
+                <p class="muted">Skillnaden mellan paketen är publiceringen. Själva hemsidan är skräddarsydd i båda.</p>
+            </div>
+            <div class="reveal" style="--d:.1s">
+                <div class="card tilt">
+                    <span class="num pop-2">OFFERT · HEMSIDA TILL ERT UF</span>
+                    <div class="pop" style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)"><span>Ordinarie pris</span><s class="muted">3 499 kr</s></div>
+                    <div class="pop" style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)"><span>UF-paket 1, komplett</span><strong style="color:var(--accent)">1 499 kr</strong></div>
+                    <div class="pop" style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)"><span>UF-paket 2</span><strong>999 kr</strong></div>
+                    <div class="pop" style="display:flex;justify-content:space-between;padding:12px 0"><span>Konsultation och rådgivning</span><strong>0 kr</strong></div>
+                    <p class="muted pop-2" style="font-size:12.5px;margin:14px 0 0">Ingen moms avdrages.</p>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Tillkommer några kostnader?</span>
-                        <span>+</span>
-                    </button>
-                    <div class="faq-answer">
-                        Ja, domän och webbhotell tillkommer normalt.
-                        Eventuella andra kostnader ska gås igenom
-                        innan arbetet påbörjas.
-                    </div>
-                </div>
+    <section class="section" id="uf-paket">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="eyebrow">UF-paketet</div>
+                <h2>Ni kan välja mellan två paket</h2>
+                <p>I alla paket ingår gratis konsultation och rådgivning.</p>
+            </div>
+            <div class="uf-packs stagger">
+                <article class="pack rec tilt">
+                    <span class="tag pop-2">Paket 1 · Vårt tips</span>
+                    <h3 class="pop">Paket 1, komplett</h3>
+                    <div class="pop"><span class="old">Ordinarie pris 3 499 kr</span></div>
+                    <div class="p pop">1 499 kr</div>
+                    <small style="color:#c9bfb7" class="pop-2">Ingen moms avdrages · Ni sparar 2 000 kr</small>
+                    <ul class="pop-2">
+                        <li>Skräddarsydd hemsida</li>
+                        <li>Bilder, kontaktuppgifter, om oss, vad vi gör med mera.</li>
+                        <li>Publicering av hemsidan på ert företags personliga domän</li>
+                        <li>Gratis konsultation och rådgivning</li>
+                    </ul>
+                    <div class="domain pop-2">www.<b style="color:var(--accent)">ert-uf</b>.se</div>
+                    <a class="btn btn-primary" href="#kontakt" data-page="kontakt" style="margin-top:14px">Välj paket 1 ↗</a>
+                </article>
 
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Kan ni hjälpa till efter publicering?</span>
-                        <span>+</span>
-                    </button>
-                    <div class="faq-answer">
-                        Ja, vi kan komma överens om uppdateringar
-                        och fortsatt hjälp. Omfattning och pris
-                        bestäms separat.
-                    </div>
-                </div>
+                <article class="pack tilt">
+                    <h3 class="pop" style="margin-top:36px">Paket 2</h3>
+                    <div class="p pop">999 kr</div>
+                    <small class="muted pop-2">Ingen moms avdrages</small>
+                    <ul class="pop-2">
+                        <li>Skräddarsydd hemsida</li>
+                        <li>Bilder, kontaktuppgifter, om oss, vad vi gör med mera.</li>
+                        <li>Gratis konsultation och rådgivning</li>
+                        <li class="no">Publicering ingår inte</li>
+                    </ul>
+                    <p class="muted pop-2" style="font-size:13px">För 500 kr mer ingår publiceringen (paket 1).</p>
+                    <a class="btn btn-outline" href="#kontakt" data-page="kontakt">Välj paket 2 ↗</a>
+                </article>
+            </div>
+        </div>
+    </section>
 
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Hur kommer vi igång?</span>
-                        <span>+</span>
-                    </button>
-                    <div class="faq-answer">
-                        Besök natverkstanuf.se eller mejla oss så
-                        kan vi prata om verksamheten och vilken
-                        lösning som passar.
-                    </div>
+    <section class="section dark">
+        <div class="container split">
+            <div class="reveal">
+                <div class="eyebrow">Frågor?</div>
+                <h2>Vi hoppas att detta låter <em>intressant</em> för er!</h2>
+                <p>Har ni några frågor är det bara att kontakta oss via mejl, telefon eller via vårt kontaktformulär.</p>
+                <p>
+                    Ju tidigare hemsidan är klar, desto längre hinner den arbeta för ert UF det här läsåret.
+                    Nätverkstan UF drivs av elever på Aranäsgymnasiet i Kungsbacka. UF-företag längre bort hjälper
+                    vi på distans, med samma arbetssätt.
+                </p>
+            </div>
+            <div class="reveal" style="--d:.1s">
+                <div class="cards two" style="grid-template-columns:1fr">
+                    <a class="card tilt" href="mailto:kontakt@natverkstanuf.se" style="text-decoration:none"><span class="num pop-2">MEJL</span><h3 class="pop" style="margin:0">kontakt@natverkstanuf.se ↗</h3></a>
+                    <a class="card tilt" href="tel:+46766368219" style="text-decoration:none"><span class="num pop-2">TELEFON</span><h3 class="pop" style="margin:0">076 636 82 19 ↗</h3></a>
+                    <a class="card tilt" href="#kontakt" data-page="kontakt" style="text-decoration:none"><span class="num pop-2">KONTAKTFORMULÄR</span><h3 class="pop" style="margin:0">Kryssa i "Vi är ett UF-företag" ↗</h3></a>
                 </div>
             </div>
         </div>
@@ -1436,209 +985,244 @@ footer {
 </section>
 
 
-<!-- PROJEKT -->
-<section class="page" id="projekt">
+<!-- ============ ARBETEN ============ -->
+<section class="page" id="arbeten">
     <section class="section">
         <div class="container">
-            <div class="section-heading">
-                <div class="eyebrow">Utvalda arbeten</div>
-                <h1>Arbete som talar <span class="accent">för sig självt.</span></h1>
-                <p>
-                    Här kan ni presentera kundprojekt, vad ni gjorde
-                    och vilka problem webbplatserna skulle lösa.
+            <div class="section-head">
+                <div class="eyebrow">Arbeten</div>
+                <h1>Vad ett <em>uppdrag</em> hos oss kan innebära</h1>
+                <p style="margin-top:22px">
+                    Vi är ett ungt företag och redovisar hellre hur vi arbetar än påstår mer än vi gjort. Här är
+                    sidorna vi byggt, sorterade efter bransch — med vad vi gjorde, vilka problem vi löste och vad det gav.
                 </p>
             </div>
 
-            <div class="project-toolbar" aria-label="Filtrera projekt">
-                <button class="filter-btn active" data-filter="alla">Alla projekt</button>
-                <button class="filter-btn" data-filter="webb">Webbdesign</button>
-                <button class="filter-btn" data-filter="foretag">Företag</button>
+            <div class="toolbar" aria-label="Filtrera arbeten">
+                <button class="filter-btn active" data-filter="alla">Alla</button>
+                <button class="filter-btn" data-filter="transport">Transport och logistik</button>
+                <button class="filter-btn" data-filter="restaurang">Restaurang och café</button>
             </div>
 
-            <div class="project-grid">
-
-                <article class="project-card" data-category="webb foretag">
-                    <div class="project-preview">
-                        <div class="browser">
-                            <div class="browser-bar"><i></i><i></i><i></i></div>
-                            <div class="browser-content">
-                                <strong>Gräppås<br>Golfrestaurang</strong>
-                                <span>MAT · GOLF · GEMENSKAP</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="cards two" id="projectGrid">
+                <a class="project-card tilt" data-category="transport" href="https://natverkstanuf.se/arbeten/sven-perssons-transport-ab" target="_blank" rel="noopener noreferrer">
+                    <div class="project-preview"><div class="browser pop"><div class="browser-bar"><i></i><i></i><i></i></div><div class="browser-content"><strong>Sven Perssons<br>Transport AB</strong><span>Transport och logistik</span></div></div></div>
                     <div class="project-info">
-                        <div class="eyebrow">Restaurang</div>
+                        <div class="eyebrow">Transport och logistik</div>
+                        <h3>Sven Perssons Transport AB</h3>
+                        <p>Vi skapade en modern och tydlig hemsida för Perssons Transport som gör det enkelt för kunder att förstå företagets tjänster och komma i kontakt med dem.</p>
+                        <span class="more">Läs om uppdraget ↗</span>
+                    </div>
+                </a>
+
+                <a class="project-card tilt" data-category="restaurang" href="https://natverkstanuf.se/arbeten/grappasgr-se" target="_blank" rel="noopener noreferrer">
+                    <div class="project-preview"><div class="browser pop"><div class="browser-bar"><i></i><i></i><i></i></div><div class="browser-content"><strong>Gräppås<br>Golfrestaurang</strong><span>Restaurang och café</span></div></div></div>
+                    <div class="project-info">
+                        <div class="eyebrow">Restaurang och café</div>
                         <h3>Gräppås Golfrestaurang</h3>
-                        <p>
-                            Ett projekt med fokus på att presentera
-                            restaurangen och göra informationen tydlig
-                            för besökare.
-                        </p>
-                        <div class="project-tags">
-                            <span>Webbdesign</span>
-                            <span>Restaurang</span>
-                            <span>Presentation</span>
-                        </div>
+                        <p>Vi uppdaterade Gräppås Golfrestaurangs hemsida med en modernare design och tydligare struktur som gör det enklare för besökare att hitta information, se restaurangen och ta kontakt.</p>
+                        <div class="project-tags"><span>Webbdesign</span><span>Restaurang</span><span>Mobilanpassning</span><span>Redesign</span></div>
+                        <span class="more">Läs om uppdraget ↗</span>
                     </div>
-                </article>
-
-                <article class="project-card" data-category="webb">
-                    <div class="project-preview">
-                        <div class="browser">
-                            <div class="browser-bar"><i></i><i></i><i></i></div>
-                            <div class="browser-content">
-                                <strong>Ert företag.<br>En ny digital start.</strong>
-                                <span>DESIGN · STRUKTUR · WEBB</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="eyebrow">Koncept</div>
-                        <h3>Nästa kundprojekt</h3>
-                        <p>
-                            Använd denna plats för att visa ett nytt
-                            kundprojekt när det är färdigställt och
-                            godkänt för publicering.
-                        </p>
-                        <div class="project-tags">
-                            <span>Webbutveckling</span>
-                            <span>Design</span>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-
-            <p class="disclaimer">
-                Projektkortens beskrivningar är exempel. Byt ut dem
-                mot verifierade projektuppgifter och använd godkända
-                bilder innan sidan publiceras.
-            </p>
-
-            <div style="margin-top:35px">
-                <a class="btn btn-primary"
-                   href="https://natverkstanuf.se"
-                   target="_blank" rel="noopener noreferrer">
-                    Se Nätverkstans webbplats ↗
                 </a>
             </div>
         </div>
     </section>
-</section>
 
-
-<!-- OM OSS -->
-<section class="page" id="om">
-    <section class="section">
+    <section class="section soft">
         <div class="container">
-            <div class="section-heading">
-                <div class="eyebrow">Om Nätverkstan</div>
-                <h1>En personlig webbyrå med <span class="accent">fokus på företag.</span></h1>
-                <p>
-                    Nätverkstan UF är ett elevdrivet företag som hjälper
-                    verksamheter att skapa en tydlig och professionell
-                    närvaro på nätet.
-                </p>
+            <div class="section-head reveal">
+                <div class="eyebrow">Gemensamt för alla</div>
+                <h2>Två saker vi håller fast vid</h2>
+                <p>Oavsett hur uppdraget ser ut är det här sådant vi inte förhandlar bort för att spara tid.</p>
             </div>
+            <div class="holds stagger">
+                <div class="hold card tilt"><b class="pop">100 %</b><p class="pop-2" style="font-size:16px;color:var(--ink)">mobilanpassat. Sidan ritas för telefonen först — inte som en anpassning i efterhand.</p></div>
+                <div class="hold card tilt"><b class="pop">0</b><p class="pop-2" style="font-size:16px;color:var(--ink)"><strong>mallar.</strong> Varje sida byggs för hand, från grunden, för just den verksamheten.</p></div>
+            </div>
+        </div>
+    </section>
 
-            <div class="banner-grid">
-                <div>
-                    <h2>Vi börjar med verksamheten. Inte med en mall.</h2>
-                    <p>
-                        Varje företag har olika kunder, behov och mål.
-                        Därför utgår vi från verksamheten när vi planerar
-                        sidans struktur, innehåll och visuella uttryck.
-                    </p>
-                    <p>
-                        Vi vill göra det enklare för mindre företag
-                        att få en webbplats som känns genomarbetad
-                        och som kunderna faktiskt kan använda.
-                    </p>
-                    <a class="btn btn-dark"
-                       href="https://natverkstanuf.se"
-                       target="_blank" rel="noopener noreferrer">
-                        Läs mer på vår webbplats ↗
-                    </a>
-                </div>
-
-                <div class="banner-statements" style="border-color:#38434c">
-                    <div class="banner-statement">
-                        <span>Skräddarsytt upplägg</span><span>01</span>
-                    </div>
-                    <div class="banner-statement">
-                        <span>Tydliga priser</span><span>02</span>
-                    </div>
-                    <div class="banner-statement">
-                        <span>Personlig kontakt</span><span>03</span>
-                    </div>
-                    <div class="banner-statement">
-                        <span>Överlämning till kunden</span><span>04</span>
-                    </div>
-                </div>
+    <section class="section" style="padding-bottom:20px">
+        <div class="container">
+            <div class="cta reveal">
+                <div><div class="eyebrow">Nästa steg</div><h2>Nästa uppdrag på listan kan vara ert</h2></div>
+                <div class="cta-actions"><a class="btn btn-primary" href="#kontakt" data-page="kontakt">Kontakta oss ↗</a><small>kontakt@natverkstanuf.se</small></div>
             </div>
         </div>
     </section>
 </section>
 
 
-<!-- KONTAKT -->
+<!-- ============ FAQ ============ -->
+<section class="page" id="faq">
+    <section class="section">
+        <div class="container">
+            <div class="section-head">
+                <div class="eyebrow">Vanliga frågor</div>
+                <h1>Det vi <em>oftast</em> får frågor om</h1>
+                <p style="margin-top:22px">Hittar ni inte svaret här är det bara att fråga. Vi svarar inom ett dygn på vardagar, hellre rakt ut än undvikande.</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Vad kostar en hemsida?</span><span class="pm">+</span></button><div class="faq-a">En hemsida behöver inte kosta mer än 3 499 kr. Det är vad en färdig sida kostar hos oss, publicerad och klar. Behöver ni fler sidor eller mer text kostar det mer, och då står det i offerten innan vi börjar. Summan ändras aldrig under arbetets gång.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Varför kostar det mindre hos er än hos många andra webbyråer?</span><span class="pm">+</span></button><div class="faq-a">Vi är ett UF-företag utan lokaler eller anställda att betala, och vi bygger sidor med en tydlig omfattning i stället för stora projekt. 3 499 kr är inget lockpris utan vad en färdig sida kostar hos oss. Behöver ni mer står det i offerten innan vi börjar.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Hur lång tid tar arbetet?</span><span class="pm">+</span></button><div class="faq-a">Två till tre veckor från det att vi har material och besked från er. Det som drar ut på tiden är nästan alltid att texter eller bilder dröjer. Har ni bråttom säger vi rakt ut om vi hinner.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Vi har ingen hemsida alls i dag. Är det ett problem?</span><span class="pm">+</span></button><div class="faq-a">Tvärtom — det är det vanligaste uppdraget vi får, och det enklaste att göra bra. Vi följer er hela vägen, från valet av domännamn till publicerad sida.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Måste vi kunna något tekniskt?</span><span class="pm">+</span></button><div class="faq-a">Nej. Ni berättar vad ni gör och vad ni vill att sidan ska uträtta. Vi utför resten. Vid överlämningen går vi igenom sidan tillsammans, så att ni vet vad ni har fått.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Vad behöver ni från oss?</span><span class="pm">+</span></button><div class="faq-a">Er logotyp om ni har en, bilder om ni har några, och en beskrivning av vad ni gör — stolpar räcker gott. Därtill någon som kan ge besked under arbetets gång.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Vi har inga bra bilder. Går det ändå?</span><span class="pm">+</span></button><div class="faq-a">Ja. Vi bygger då sidan i form, färg och typografi i stället, vilket ofta blir stilrenare än svaga bilder. Kommer bra bilder längre fram lägger vi in dem.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Ingår sökmotoroptimering?</span><span class="pm">+</span></button><div class="faq-a">Grundläggande sökmotoroptimering ingår alltid: egna sidtitlar och beskrivningar, en rubrikstruktur sökmotorn kan följa, alt-texter, sitemap.xml, robots.txt och uppmärkta företagsuppgifter. Vi lovar inte förstaplatsen på Google — det gör ingen som kan sitt arbete — men sidan byggs så att den kan ta sig dit.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Fungerar sidan i telefonen?</span><span class="pm">+</span></button><div class="faq-a">Ja, och det är där arbetet börjar. Sidan ritas i mobilstorlek först och byggs ut mot dator, och provkörs i riktiga mobilstorlekar innan överlämning.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Äger vi hemsidan?</span><span class="pm">+</span></button><div class="faq-a">Ja. Sidan, texterna och domänen är era. Ni är aldrig bundna till oss och kan när som helst ta med er allt någon annanstans.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Vad kostar det att driva sidan efteråt?</span><span class="pm">+</span></button><div class="faq-a">Ingenting till oss. Domän och webbhotell betalar ni direkt till leverantören, vanligtvis några hundralappar om året. Vi hjälper er välja så enkelt och billigt som möjligt.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Kan vi ändra saker själva efteråt?</span><span class="pm">+</span></button><div class="faq-a">Enklare ändringar, som texter och kontaktuppgifter, visar vi hur ni gör vid överlämningen. Vill ni hellre att vi utför dem säger vi vad det kostar innan vi gör något.</div></div>
+                <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Ni är ett UF-företag. Vad innebär det för oss?</span><span class="pm">+</span></button><div class="faq-a">Att ni får ett lägre pris än hos en etablerad byrå, och att vi lägger desto mer omsorg på varje uppdrag eftersom vårt rykte byggs just nu. Vi lovar aldrig mer än vi kan hålla. Kan vi inte lösa något säger vi det i stället för att försöka ändå.</div></div>
+            </div>
+
+            <ul class="article-links" style="margin-top:48px">
+                <li><a href="https://natverkstanuf.se/artiklar/sju-fragor-till-webbyran" target="_blank" rel="noopener noreferrer">Sju frågor att ställa webbyrån innan ni beställer — vad svaren betyder <span>→</span></a></li>
+                <li><a href="https://natverkstanuf.se/artiklar/tillganglighetslagen-hemsida" target="_blank" rel="noopener noreferrer">Gäller tillgänglighetslagen er hemsida? Mikroföretag, e-handel och kraven, med källor <span>→</span></a></li>
+                <li><a href="https://natverkstanuf.se/artiklar/vad-maste-sta-pa-hemsidan" target="_blank" rel="noopener noreferrer">Vad måste stå på företagets hemsida? Uppgifterna, kakorna och personuppgifterna, med källor <span>→</span></a></li>
+            </ul>
+
+            <p style="margin-top:40px"><strong>Något vi har missat?</strong> Skicka frågan till <a href="mailto:kontakt@natverkstanuf.se" style="color:var(--accent)">kontakt@natverkstanuf.se</a> så svarar vi — och lägger till den här om fler undrar detsamma.</p>
+        </div>
+    </section>
+</section>
+
+
+<!-- ============ OM OSS ============ -->
+<section class="page" id="om">
+    <section class="section">
+        <div class="container">
+            <div class="section-head">
+                <div class="eyebrow">Om Nätverkstan UF</div>
+                <h1>Webbyrå i Kungsbacka som bygger <em>hemsidor</em> för företag</h1>
+                <p style="margin-top:22px">
+                    Nätverkstan UF tar fram hemsidor åt små och medelstora företag — från första samtal till
+                    publicerad sida. Vi arbetar med fast pris, tydliga leveranser och en kontaktperson genom hela uppdraget.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#kontakt" data-page="kontakt">Kontakta oss ↗</a>
+                    <a class="btn btn-outline" href="#tjanster" data-page="tjanster">Se vad som ingår</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section soft">
+        <div class="container split">
+            <div class="reveal">
+                <div class="eyebrow">Företaget</div>
+                <h2>Ett UF-företag med ansvar för hela leveransen</h2>
+            </div>
+            <div class="reveal" style="--d:.1s">
+                <p class="muted">Nätverkstan UF är registrerat inom Ung Företagsamhet och leds av elever på Aranäsgymnasiet i Kungsbacka. Verksamheten drivs som vilket företag som helst: med skriftlig offert, faktura och ansvar för det som levereras.</p>
+                <p class="muted">Ni har direktkontakt med dem som designar och bygger er hemsida. Det finns inga mellanhänder och ingen underleverantör — det som bestäms i samtalet är det som levereras.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="eyebrow">Teamet</div>
+                <h2>Ledningen bakom Nätverkstan UF</h2>
+            </div>
+            <div class="team stagger">
+                <article class="member tilt"><div class="avatar pop">AH</div><div class="role pop-2">VD</div><h3 class="pop-2">Albin Hörndahl</h3><p class="pop-2">Ansvarar för företagets inriktning och planering, och för att varje uppdrag levereras enligt överenskommelse.</p></article>
+                <article class="member tilt"><div class="avatar pop">EK</div><div class="role pop-2">Produktionschef</div><h3 class="pop-2">Elias Kristensson</h3><p class="pop-2">Leder design och utveckling. Ser till att varje hemsida är mobilanpassad, snabb och testad innan den publiceras.</p></article>
+                <article class="member tilt"><div class="avatar pop">VP</div><div class="role pop-2">Ekonomiansvarig</div><h3 class="pop-2">Viktor Parkell</h3><p class="pop-2">Ansvarar för offerter, fakturering och bokföring — och för att det fasta priset gäller från offert till faktura.</p></article>
+                <article class="member tilt"><div class="avatar pop">SF</div><div class="role pop-2">Marknadsansvarig</div><h3 class="pop-2">Sixten Forsberg</h3><p class="pop-2">Ansvarar för marknadsföring och varumärke, och för att företag som behöver en ny hemsida hittar till oss.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section dark">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="eyebrow">Inriktning</div>
+                <h2>Hemsidor för småföretag i Kungsbacka och Halland</h2>
+                <p>Vi är specialiserade på hemsidor för företag: sidor som gör det enkelt för kunder att hitta, förstå och kontakta dem.</p>
+            </div>
+            <div class="cards stagger">
+                <article class="card tilt"><span class="num pop-2">01</span><h3 class="pop">Nya hemsidor och omgörningar</h3><p class="pop-2">För företag som saknar hemsida, eller har en som inte fungerar i mobilen, laddar långsamt eller inte längre speglar verksamheten.</p></article>
+                <article class="card tilt"><span class="num pop-2">02</span><h3 class="pop">Synlighet i sökresultaten</h3><p class="pop-2">Varje sida byggs med sidtitlar, beskrivningar, rubrikstruktur och teknisk grund för att kunna synas när kunder i närområdet söker efter det ni erbjuder.</p></article>
+                <article class="card tilt"><span class="num pop-2">03</span><h3 class="pop">Lokalt i Kungsbacka, även på distans</h3><p class="pop-2">Vi utgår från Kungsbacka och träffar gärna kunder i närområdet och i Göteborgsregionen. Uppdrag längre bort genomförs på distans, med samma arbetssätt.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="eyebrow">Arbetssätt</div>
+                <h2>Så arbetar vi med varje hemsida</h2>
+            </div>
+            <div class="steps stagger">
+                <article class="step"><span class="n">01</span><h3>Fast pris innan arbetet börjar</h3><p>Efter ett inledande samtal får ni en skriftlig offert. Priset ändras inte utan ert godkännande.</p></article>
+                <article class="step"><span class="n">02</span><h3>Löpande avstämning</h3><p>Ni följer arbetet under hela processen och lämnar synpunkter innan sidan publiceras.</p></article>
+                <article class="step"><span class="n">03</span><h3>Ni äger hemsidan</h3><p>Vid överlämningen går vi igenom sidan tillsammans. Sidan, texterna och domänen är era — utan abonnemang eller bindningstid.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section soft">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="eyebrow">Fakta</div>
+                <h2>Företaget i korthet</h2>
+            </div>
+            <dl class="facts">
+                <dt>Företag</dt><dd>Nätverkstan UF</dd>
+                <dt>Verksamhet</dt><dd>Webbyrå — hemsidor åt företag</dd>
+                <dt>Företagsform</dt><dd>UF-företag inom Ung Företagsamhet</dd>
+                <dt>Startat</dt><dd>1 september 2026</dd>
+                <dt>Grundare</dt><dd>Albin Hörndahl, Elias Kristensson, Viktor Parkell och Sixten Forsberg</dd>
+                <dt>Skola</dt><dd>Aranäsgymnasiet</dd>
+                <dt>Ort</dt><dd>Kungsbacka, Sverige</dd>
+                <dt>E-post</dt><dd><a href="mailto:kontakt@natverkstanuf.se">kontakt@natverkstanuf.se</a></dd>
+                <dt>Telefon</dt><dd><a href="tel:+46766368219">076 636 82 19</a></dd>
+                <dt>Hitta oss</dt>
+                <dd>
+                    <a href="https://www.instagram.com/natverkstan_uf/" target="_blank" rel="noopener noreferrer">Instagram</a>,
+                    <a href="https://ungforetagsamhet.se/company/natverkstan-uf" target="_blank" rel="noopener noreferrer">Ung Företagsamhet</a> och
+                    <a href="https://www.google.com/search?kgmid=/g/11nw0jth_t" target="_blank" rel="noopener noreferrer">Google</a>
+                </dd>
+            </dl>
+        </div>
+    </section>
+</section>
+
+
+<!-- ============ KONTAKT ============ -->
 <section class="page" id="kontakt">
     <section class="section">
         <div class="container">
-            <div class="section-heading">
+            <div class="section-head">
                 <div class="eyebrow">Kontakt</div>
-                <h1>Berätta vad ni <span class="accent">behöver.</span></h1>
-                <p>
-                    Fundera på en ny hemsida? Hör av er så kan vi
-                    prata om verksamheten, era behov och möjliga nästa steg.
-                </p>
+                <h1>Berätta om verksamheten, så återkommer vi med ett <em>förslag</em></h1>
+                <p style="margin-top:22px">Svar inom 24 timmar, vardagar. Skickar ni på helgen hör vi av oss på måndagen.</p>
             </div>
 
-            <div class="contact-layout">
-                <div>
-                    <h2>Vi hjälper er vidare.</h2>
-                    <p class="muted">
-                        Det behöver inte finnas en färdig plan.
-                        Börja med att beskriva ert företag och vad
-                        ni skulle vilja förbättra.
-                    </p>
+            <div class="split top">
+                <form class="contact-form reveal" id="contactForm" novalidate>
+                    <div class="field"><label for="f-name">Namn</label><input type="text" id="f-name" name="name" autocomplete="name" required placeholder="Kim Ek"></div>
+                    <div class="field"><label for="f-mail">E-post</label><input type="email" id="f-mail" name="email" autocomplete="email" required placeholder="kim@example.com"></div>
+                    <div class="field"><label for="f-msg">Meddelande</label><textarea id="f-msg" name="message" required placeholder="Vi driver en verkstad och behöver en ny sida. Går det att höras i veckan?"></textarea></div>
+                    <label class="check"><input type="checkbox" id="f-uf"> Vi är ett UF-företag</label>
+                    <button class="btn btn-primary" type="submit" style="width:100%">Skicka förfrågan ↗</button>
+                    <p class="note" id="formNote">Knappen öppnar ditt e-postprogram med meddelandet ifyllt, adresserat till kontakt@natverkstanuf.se.</p>
+                </form>
 
-                    <a class="btn btn-primary"
-                       href="mailto:kontakt@natverkstanuf.se?subject=F%C3%B6rfr%C3%A5gan%20om%20hemsida">
-                        Skicka ett mejl ↗
-                    </a>
-
-                    <p class="disclaimer">
-                        Mejlet öppnas i ditt vanliga e-postprogram.
-                    </p>
-                </div>
-
-                <div class="contact-panel">
-                    <div class="contact-detail">
-                        <strong>E-post</strong>
-                        <a href="mailto:kontakt@natverkstanuf.se">
-                            kontakt@natverkstanuf.se
-                        </a>
-                    </div>
-
-                    <div class="contact-detail">
-                        <strong>Webbplats</strong>
-                        <a href="https://natverkstanuf.se"
-                           target="_blank" rel="noopener noreferrer">
-                            natverkstanuf.se ↗
-                        </a>
-                    </div>
-
-                    <div class="contact-detail">
-                        <strong>Verksamhetsområde</strong>
-                        <p>Kungsbacka och Göteborgsregionen</p>
-                    </div>
-
-                    <div class="contact-detail">
-                        <strong>Företag</strong>
-                        <p>Nätverkstan UF</p>
-                    </div>
+                <div class="reveal contact-lines" style="--d:.1s">
+                    <div class="contact-line"><small>E-post</small><a href="mailto:kontakt@natverkstanuf.se">kontakt@natverkstanuf.se</a></div>
+                    <div class="contact-line"><small>Telefon</small><a href="tel:+46766368219">076 636 82 19</a></div>
+                    <div class="contact-line"><small>Svarstid</small><span>Inom 24 timmar, vardagar</span></div>
+                    <div class="contact-line"><small>Företag</small><span>Nätverkstan UF · UF-företag på Aranäsgymnasiet</span></div>
+                    <div class="contact-line"><small>Ort</small><span>Kungsbacka, Sverige — vi hjälper även företag på distans</span></div>
+                    <p class="note"><a href="https://natverkstanuf.se/kontakt" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">Du kan också använda kontaktformuläret på natverkstanuf.se ↗</a></p>
                 </div>
             </div>
         </div>
@@ -1652,44 +1236,34 @@ footer {
     <div class="container">
         <div class="footer-grid">
             <div>
-                <a class="brand" href="#hem" data-page="hem">
-                    <span class="brand-mark">N</span>
-                    <span>NÄTVERKSTAN UF</span>
-                </a>
-                <p class="footer-description">
-                    Hemsidor som gör företag tydligare,
-                    mer tillgängliga och enklare att hitta.
-                </p>
+                <a class="brand" href="#hem" data-page="hem">Nätverkstan<b>UF</b></a>
+                <p class="footer-description"><strong style="color:#fff">Nätverkstan UF</strong><br>Webbyrå i Kungsbacka<br>UF-företag på Aranäsgymnasiet<br>Kungsbacka, Sverige</p>
             </div>
-
             <div>
-                <div class="footer-title">Utforska</div>
+                <div class="footer-title">Sidor</div>
                 <div class="footer-links">
-                    <button data-page="tjanster">Tjänster</button>
-                    <button data-page="paket">Paket och priser</button>
-                    <button data-page="projekt">Projekt</button>
-                    <button data-page="om">Om oss</button>
-                    <button data-page="kontakt">Kontakt</button>
+                    <a href="#tjanster" data-page="tjanster">Vad vi gör</a>
+                    <a href="#pris" data-page="pris">Pris</a>
+                    <a href="#uf" data-page="uf">För UF-företag</a>
+                    <a href="#arbeten" data-page="arbeten">Arbeten</a>
+                    <a href="#faq" data-page="faq">Vanliga frågor</a>
+                    <a href="#om" data-page="om">Om oss</a>
+                    <a href="#kontakt" data-page="kontakt">Kontakt</a>
                 </div>
             </div>
-
             <div>
-                <div class="footer-title">Nätverkstan online</div>
+                <div class="footer-title">Kontakt</div>
                 <div class="footer-links">
-                    <a href="https://natverkstanuf.se"
-                       target="_blank" rel="noopener noreferrer">
-                        Vår riktiga webbplats ↗
-                    </a>
-                    <a href="mailto:kontakt@natverkstanuf.se">
-                        Skicka e-post ↗
-                    </a>
+                    <a href="mailto:kontakt@natverkstanuf.se">kontakt@natverkstanuf.se</a>
+                    <a href="tel:+46766368219">076 636 82 19</a>
+                    <span style="color:#b9aea5">Svar inom 24 timmar, vardagar.</span>
+                    <a href="https://natverkstanuf.se" target="_blank" rel="noopener noreferrer">natverkstanuf.se ↗</a>
                 </div>
             </div>
         </div>
-
         <div class="footer-bottom">
-            <span>© <span id="year"></span> Nätverkstan UF.</span>
-            <span>En personlig kontakt: Elias Kristensson.</span>
+            <span>© <span id="year">2026</span> Nätverkstan UF · <a href="https://natverkstanuf.se/integritetspolicy" target="_blank" rel="noopener noreferrer">Integritetspolicy</a></span>
+            <span>Byggd för hand — inga mallar</span>
         </div>
     </div>
 </footer>
@@ -1697,166 +1271,594 @@ footer {
 <button class="back-top" id="backTop" aria-label="Till toppen">↑</button>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-// SIDNAVIGATION
+(function () {
+'use strict';
 
-const pages = [...document.querySelectorAll(".page")];
-const navButtons = [...document.querySelectorAll("[data-page]")];
-const nav = document.getElementById("navigation");
-const mobileToggle = document.getElementById("mobileToggle");
+const $ = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function showPage(id, updateHistory = true) {
+/* ---------- SIDNAVIGATION ---------- */
+
+const TITLES = {
+    hem: 'Hemsida till företag i Kungsbacka | Nätverkstan UF',
+    tjanster: 'Vad vi gör – hemsida för småföretag | Nätverkstan UF',
+    pris: 'Vad kostar en hemsida? Från 3 499 kr | Nätverkstan UF',
+    uf: 'Hemsida för UF-företag: 999 kr eller 1 499 kr | Nätverkstan UF',
+    arbeten: 'Exempel på hemsidor vi byggt | Nätverkstan UF',
+    faq: 'Frågor om att köpa hemsida till företag | Nätverkstan UF',
+    om: 'Om oss – webbyrå i Kungsbacka | Nätverkstan UF',
+    kontakt: 'Kontakta oss | Nätverkstan UF'
+};
+
+const pages = $$('.page');
+const navLinks = $$('.nav-links a');
+const nav = $('#navigation');
+const toggle = $('#mobileToggle');
+
+function closeMenu() {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = 'Meny ☰';
+}
+
+function showPage(id, push = true) {
     const target = document.getElementById(id);
+    if (!target || !target.classList.contains('page')) id = 'hem';
 
-    if (!target || !target.classList.contains("page")) {
-        id = "hem";
-    }
-
-    pages.forEach(page => {
-        page.classList.toggle("active", page.id === id);
+    pages.forEach(p => p.classList.toggle('active', p.id === id));
+    navLinks.forEach(a => {
+        const on = a.dataset.page === id;
+        a.classList.toggle('active', on);
+        if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
 
-    navButtons.forEach(button => {
-        const active = button.dataset.page === id;
-        button.classList.toggle("active", active);
+    closeMenu();
+    document.title = TITLES[id] || TITLES.hem;
+    if (push) history.pushState({ page: id }, '', '#' + id);
+    window.scrollTo(0, 0);
+}
 
-        if (button.closest("nav")) {
-            if (active) {
-                button.setAttribute("aria-current", "page");
-            } else {
-                button.removeAttribute("aria-current");
-            }
+document.addEventListener('click', e => {
+    const a = e.target.closest('[data-page]');
+    if (!a) return;
+    e.preventDefault();
+    showPage(a.dataset.page);
+});
+
+window.addEventListener('popstate', () => showPage(location.hash.slice(1) || 'hem', false));
+
+toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.textContent = open ? 'Stäng ✕' : 'Meny ☰';
+});
+
+showPage(location.hash.slice(1) || 'hem', false);
+
+/* ---------- 3D-REVEAL VID SCROLL ---------- */
+
+$$('.stagger').forEach(group => {
+    Array.from(group.children).forEach((child, i) => {
+        child.classList.add('reveal');
+        child.style.setProperty('--d', ((i % 4) * 0.09) + 's');
+    });
+});
+
+const revealIO = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            revealIO.unobserve(entry.target);
         }
     });
+}, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+$$('.reveal').forEach(el => revealIO.observe(el));
 
-    nav.classList.remove("open");
-    mobileToggle.setAttribute("aria-expanded", "false");
-    mobileToggle.textContent = "Meny ☰";
+/* ---------- 3D-TILT PÅ KORT ---------- */
 
-    if (updateHistory) {
-        history.pushState({ page: id }, "", "#" + id);
-    }
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-document.querySelectorAll("[data-page]").forEach(button => {
-    button.addEventListener("click", event => {
-        event.preventDefault();
-        showPage(button.dataset.page);
+$$('.tilt').forEach(el => {
+    el.addEventListener('pointermove', e => {
+        if (e.pointerType === 'touch' || reduce) return;
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        el.style.setProperty('--ry', ((x - 0.5) * 14).toFixed(2) + 'deg');
+        el.style.setProperty('--rx', ((0.5 - y) * 14).toFixed(2) + 'deg');
+        el.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+        el.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+    });
+    el.addEventListener('pointerleave', () => {
+        el.style.setProperty('--rx', '0deg');
+        el.style.setProperty('--ry', '0deg');
     });
 });
 
-document.querySelectorAll("[data-go]").forEach(button => {
-    button.addEventListener("click", () => {
-        showPage(button.dataset.go);
-    });
-});
+/* ---------- FAQ ---------- */
 
-window.addEventListener("popstate", () => {
-    showPage(location.hash.slice(1) || "hem", false);
-});
-
-function loadInitialPage() {
-    const id = location.hash.slice(1);
-    const target = document.getElementById(id);
-
-    if (target && target.classList.contains("page")) {
-        showPage(id, false);
-    } else {
-        showPage("hem", false);
-    }
-}
-
-loadInitialPage();
-
-
-// MOBILMENY
-
-mobileToggle.addEventListener("click", () => {
-    const open = nav.classList.toggle("open");
-
-    mobileToggle.setAttribute("aria-expanded", String(open));
-    mobileToggle.textContent = open ? "Stäng ✕" : "Meny ☰";
-});
-
-
-// FAQ – EN FRÅGA ÖPPEN ÅT GÅNGEN
-
-document.querySelectorAll(".faq-question").forEach(button => {
-    button.addEventListener("click", () => {
-        const item = button.closest(".faq-item");
-        const wasOpen = item.classList.contains("open");
-
-        document.querySelectorAll(".faq-item").forEach(other => {
-            other.classList.remove("open");
-            other.querySelector(".faq-question")
-                .setAttribute("aria-expanded", "false");
-            other.querySelector(".faq-question span:last-child")
-                .textContent = "+";
+$$('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const list = btn.closest('.faq-list');
+        const wasOpen = item.classList.contains('open');
+        $$('.faq-item', list).forEach(o => {
+            o.classList.remove('open');
+            $('.faq-q', o).setAttribute('aria-expanded', 'false');
         });
-
         if (!wasOpen) {
-            item.classList.add("open");
-            button.setAttribute("aria-expanded", "true");
-            button.querySelector("span:last-child").textContent = "−";
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
         }
     });
 });
 
+/* ---------- ARBETEN: FILTER ---------- */
 
-// PROJEKTFILTER
-
-const filterButtons = document.querySelectorAll("[data-filter]");
-const projectCards = document.querySelectorAll(".project-card");
-
-filterButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const filter = button.dataset.filter;
-
-        filterButtons.forEach(item => {
-            item.classList.toggle("active", item === button);
-        });
-
-        projectCards.forEach(card => {
-            const categories = card.dataset.category.split(" ");
-            card.hidden = filter !== "alla" && !categories.includes(filter);
-        });
+const filterBtns = $$('[data-filter]');
+const projectCards = $$('#projectGrid .project-card');
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const f = btn.dataset.filter;
+        filterBtns.forEach(b => b.classList.toggle('active', b === btn));
+        projectCards.forEach(c => { c.hidden = f !== 'alla' && c.dataset.category !== f; });
     });
 });
 
+/* ---------- KONTAKTFORMULÄR (mailto) ---------- */
 
-// KONTAKTVÄG FRÅN VALT PAKET
+$('#contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const name = $('#f-name').value.trim();
+    const mail = $('#f-mail').value.trim();
+    const msg = $('#f-msg').value.trim();
+    const uf = $('#f-uf').checked;
+    const note = $('#formNote');
 
-document.querySelectorAll("[data-contact]").forEach(button => {
-    button.addEventListener("click", () => {
-        const packageName = button.dataset.contact;
-        const subject = encodeURIComponent(
-            "Förfrågan om Nätverkstan UF – " + packageName
-        );
+    if (!name || !mail || !msg || !/^\S+@\S+\.\S+$/.test(mail)) {
+        note.textContent = 'Fyll i namn, en giltig e-postadress och ett meddelande så öppnar vi ert e-postprogram.';
+        note.style.color = 'var(--accent)';
+        return;
+    }
+    note.style.color = '';
+    note.textContent = 'Öppnar ditt e-postprogram …';
 
-        window.location.href =
-            "mailto:kontakt@natverkstanuf.se?subject=" + subject;
-    });
+    const subject = (uf ? 'Förfrågan från UF-företag – ' : 'Förfrågan om hemsida – ') + name;
+    const body = 'Namn: ' + name + '\nE-post: ' + mail + (uf ? '\nVi är ett UF-företag: ja' : '') + '\n\n' + msg;
+    window.location.href = 'mailto:kontakt@natverkstanuf.se?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 });
 
+/* ---------- LADDTID (live) ---------- */
 
-// ÅRTAL OCH TILL TOPPEN
+function measure() {
+    const paint = performance.getEntriesByType('paint').find(p => p.name === 'first-contentful-paint');
+    const t = paint ? paint.startTime / 1000 : performance.now() / 1000;
+    $('#fcp').textContent = t.toFixed(2).replace('.', ',');
+}
+if (document.readyState === 'complete') measure(); else window.addEventListener('load', () => setTimeout(measure, 50));
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+/* ---------- ÅRTAL + TILL TOPPEN ---------- */
 
-const backTop = document.getElementById("backTop");
+$('#year').textContent = new Date().getFullYear();
+const backTop = $('#backTop');
+window.addEventListener('scroll', () => backTop.classList.toggle('visible', window.scrollY > 600), { passive: true });
+backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
 
-window.addEventListener("scroll", () => {
-    backTop.classList.toggle("visible", window.scrollY > 450);
+/* =====================================================
+   WEBGL / THREE.JS
+   ===================================================== */
+
+if (!window.THREE) { $('#hero').classList.add('no-webgl'); return; }
+
+const pointer = { x: 0, y: 0 };
+window.addEventListener('pointermove', e => {
+    pointer.x = (e.clientX / window.innerWidth - 0.5) * 2;
+    pointer.y = (e.clientY / window.innerHeight - 0.5) * 2;
 }, { passive: true });
 
-backTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
-</script>
+const redraws = [];
+function canvasTexture(w, h, draw) {
+    const c = document.createElement('canvas');
+    c.width = w; c.height = h;
+    const g = c.getContext('2d');
+    const tex = new THREE.CanvasTexture(c);
+    tex.encoding = THREE.sRGBEncoding;
+    tex.anisotropy = 8;
+    const run = () => { g.clearRect(0, 0, w, h); draw(g, w, h); tex.needsUpdate = true; };
+    run();
+    redraws.push(run);
+    return tex;
+}
+if (document.fonts && document.fonts.load) {
+    Promise.all([
+        document.fonts.load('900 40px Archivo'),
+        document.fonts.load('700 20px Archivo'),
+        document.fonts.load('500 20px Archivo')
+    ]).then(() => redraws.forEach(fn => fn())).catch(() => {});
+}
 
+function rrect(g, x, y, w, h, r) {
+    g.beginPath();
+    g.moveTo(x + r, y);
+    g.arcTo(x + w, y, x + w, y + h, r);
+    g.arcTo(x + w, y + h, x, y + h, r);
+    g.arcTo(x, y + h, x, y, r);
+    g.arcTo(x, y, x + w, y, r);
+    g.closePath();
+}
+function wrap(g, text, x, y, maxW, lh) {
+    const words = text.split(' ');
+    let line = '';
+    words.forEach(word => {
+        const test = line ? line + ' ' + word : word;
+        if (g.measureText(test).width > maxW && line) { g.fillText(line, x, y); line = word; y += lh; }
+        else line = test;
+    });
+    g.fillText(line, x, y);
+    return y + lh;
+}
+
+const FONT = 'Archivo, Arial, sans-serif';
+
+function observeVisible(el, onChange) {
+    const io = new IntersectionObserver(es => es.forEach(e => onChange(e.isIntersecting)), { threshold: 0 });
+    io.observe(el);
+}
+
+function makeRenderer(canvas) {
+    try {
+        const r = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+        r.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        r.outputEncoding = THREE.sRGBEncoding;
+        r.setClearColor(0x000000, 0);
+        return r;
+    } catch (err) { return null; }
+}
+
+/* ---------- HERO-SCEN ---------- */
+
+function initHero() {
+    const host = $('#hero');
+    const canvas = $('#heroCanvas');
+    const renderer = makeRenderer(canvas);
+    if (!renderer) { host.classList.add('no-webgl'); return; }
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.set(0, 0, 9);
+
+    const group = new THREE.Group();
+    scene.add(group);
+
+    const uniforms = {
+        uTime: { value: 0 },
+        uMouse: { value: new THREE.Vector2() },
+        uAccent: { value: new THREE.Vector3(0.847, 0.2, 0.039) }
+    };
+
+    const vert = `
+        uniform float uTime; uniform vec2 uMouse;
+        varying vec3 vNormal; varying vec3 vView; varying float vDisp;
+        void main() {
+            vec3 p = position;
+            float n = sin(p.x * 2.1 + uTime * 0.9) * sin(p.y * 2.4 + uTime * 1.1) * sin(p.z * 2.2 + uTime * 0.7);
+            n += 0.5 * sin(p.x * 4.3 - uTime * 1.3 + p.y * 3.1) * sin(p.z * 4.1 + uTime * 0.9);
+            float d = n * (0.2 + 0.12 * length(uMouse));
+            vDisp = d;
+            vec3 np = p + normal * d;
+            vNormal = normalize(normalMatrix * normal);
+            vec4 mv = modelViewMatrix * vec4(np, 1.0);
+            vView = -mv.xyz;
+            gl_Position = projectionMatrix * mv;
+        }`;
+
+    const solid = new THREE.ShaderMaterial({
+        uniforms, vertexShader: vert,
+        fragmentShader: `
+            uniform vec3 uAccent;
+            varying vec3 vNormal; varying vec3 vView; varying float vDisp;
+            void main() {
+                vec3 N = normalize(vNormal); vec3 V = normalize(vView);
+                float f = pow(1.0 - max(dot(N, V), 0.0), 2.4);
+                vec3 base = vec3(0.085, 0.065, 0.06);
+                vec3 col = base + uAccent * (f * 1.25 + smoothstep(0.05, 0.32, vDisp) * 0.6);
+                col += vec3(1.0, 0.55, 0.3) * pow(f, 6.0) * 0.7;
+                gl_FragColor = vec4(col, 1.0);
+            }`
+    });
+
+    const wire = new THREE.ShaderMaterial({
+        uniforms, vertexShader: vert, wireframe: true, transparent: true,
+        blending: THREE.AdditiveBlending, depthWrite: false,
+        fragmentShader: `
+            uniform vec3 uAccent; varying float vDisp;
+            void main() { gl_FragColor = vec4(uAccent * 1.3 + vec3(0.1), 0.28 + abs(vDisp) * 1.4); }`
+    });
+
+    const core = new THREE.Mesh(new THREE.IcosahedronGeometry(1.55, 20), solid);
+    const shell = new THREE.Mesh(new THREE.IcosahedronGeometry(1.62, 5), wire);
+    group.add(core, shell);
+
+    const rings = [0, 1].map(i => {
+        const ring = new THREE.Mesh(
+            new THREE.TorusGeometry(2.55 + i * 0.5, 0.006, 6, 220),
+            new THREE.MeshBasicMaterial({ color: 0xD8330A, transparent: true, opacity: 0.6 - i * 0.25 })
+        );
+        ring.rotation.x = 1.25 + i * 0.3;
+        ring.rotation.z = i * 0.9;
+        group.add(ring);
+        return ring;
+    });
+
+    // Partiklar
+    const COUNT = window.innerWidth < 700 ? 900 : 2000;
+    const pos = new Float32Array(COUNT * 3), size = new Float32Array(COUNT), seed = new Float32Array(COUNT);
+    for (let i = 0; i < COUNT; i++) {
+        const r = 3.4 + Math.random() * 7;
+        const th = Math.random() * Math.PI * 2;
+        const ph = Math.acos(2 * Math.random() - 1);
+        pos[i * 3] = r * Math.sin(ph) * Math.cos(th);
+        pos[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th) * 0.75;
+        pos[i * 3 + 2] = r * Math.cos(ph);
+        size[i] = 0.6 + Math.random() * 2.2;
+        seed[i] = Math.random();
+    }
+    const pg = new THREE.BufferGeometry();
+    pg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    pg.setAttribute('aSize', new THREE.BufferAttribute(size, 1));
+    pg.setAttribute('aSeed', new THREE.BufferAttribute(seed, 1));
+    const pmat = new THREE.ShaderMaterial({
+        uniforms: { uTime: uniforms.uTime },
+        transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+        vertexShader: `
+            attribute float aSize; attribute float aSeed; uniform float uTime;
+            varying float vSeed;
+            void main() {
+                vSeed = aSeed;
+                vec3 p = position;
+                p.y += sin(uTime * 0.5 + aSeed * 40.0) * 0.18;
+                p.x += cos(uTime * 0.4 + aSeed * 30.0) * 0.12;
+                vec4 mv = modelViewMatrix * vec4(p, 1.0);
+                gl_PointSize = aSize * (260.0 / -mv.z);
+                gl_Position = projectionMatrix * mv;
+            }`,
+        fragmentShader: `
+            varying float vSeed;
+            void main() {
+                float d = length(gl_PointCoord - 0.5);
+                if (d > 0.5) discard;
+                vec3 c = mix(vec3(1.0, 0.45, 0.22), vec3(1.0, 0.93, 0.85), step(0.6, vSeed));
+                gl_FragColor = vec4(c, smoothstep(0.5, 0.0, d) * 0.85);
+            }`
+    });
+    const particles = new THREE.Points(pg, pmat);
+    group.add(particles);
+
+    // Flytande webbläsarfönster (exempelskisser)
+    function sketch(o) {
+        return canvasTexture(640, 400, (g, w, h) => {
+            g.fillStyle = o.bg; g.fillRect(0, 0, w, h);
+            g.fillStyle = '#ece6de'; g.fillRect(0, 0, w, 38);
+            [0, 1, 2].forEach(i => { g.fillStyle = '#c9c2b9'; g.beginPath(); g.arc(22 + i * 18, 19, 5, 0, 7); g.fill(); });
+            g.fillStyle = '#fff'; rrect(g, 110, 9, 330, 20, 10); g.fill();
+            g.fillStyle = '#8a8077'; g.font = '500 12px ' + FONT; g.fillText(o.url, 126, 23);
+            g.fillStyle = o.ink; g.font = '800 15px ' + FONT; g.fillText(o.brand, 28, 76);
+            g.font = '500 12px ' + FONT; g.fillStyle = o.ink + 'aa';
+            ['Meny', 'Om oss', 'Kontakt'].forEach((t, i) => g.fillText(t, 420 + i * 68, 76));
+            g.fillStyle = o.accent; g.beginPath(); g.arc(520, 250, 118, 0, 7); g.fill();
+            g.fillStyle = 'rgba(255,255,255,.2)'; g.beginPath(); g.arc(470, 215, 64, 0, 7); g.fill();
+            g.fillStyle = o.ink; g.font = '900 46px ' + FONT; wrap(g, o.title, 28, 160, 380, 50);
+            g.fillStyle = o.ink + 'bb'; g.font = '500 16px ' + FONT; wrap(g, o.sub, 28, 300, 330, 22);
+            g.fillStyle = o.accent; rrect(g, 28, 336, 170, 40, 8); g.fill();
+            g.fillStyle = '#fff'; g.font = '800 14px ' + FONT; g.fillText(o.cta, 46, 361);
+        });
+    }
+    const sketches = [
+        { url: 'stenugnsbageriet.se', brand: 'Stenugnsbageriet', bg: '#f4e8d6', ink: '#3a2616', accent: '#c4762b', title: 'Stenugnsbageriet', sub: 'Sedan 1998 · Bröd bakat på gammalt vis', cta: 'Se sortimentet' },
+        { url: 'kungsbacka-pizzeria.se', brand: 'Kungsbacka Pizzeria', bg: '#1d1a17', ink: '#f6efe6', accent: '#d8330a', title: 'Kungsbacka Pizzeria', sub: 'Meny · Öppettider · Kontakt', cta: 'Se menyn' },
+        { url: 'kungsbacka-snickeri.se', brand: 'Kungsbacka Snickeri', bg: '#e6eef0', ink: '#16303a', accent: '#2f7d8c', title: 'Kungsbacka Snickeri', sub: 'Snickerier efter mått', cta: 'Be om offert' }
+    ];
+    const panels = sketches.map(s => {
+        const tex = sketch(s);
+        const side = new THREE.MeshBasicMaterial({ color: 0x2a211d });
+        const front = new THREE.MeshBasicMaterial({ map: tex });
+        const mesh = new THREE.Mesh(new THREE.BoxGeometry(2.5, 1.56, 0.06), [side, side, side, side, front, side]);
+        mesh.scale.setScalar(0.82);
+        group.add(mesh);
+        return mesh;
+    });
+
+    const layout = { x: 0, y: 0, s: 1, rx: 3.3 };
+    function resize() {
+        const w = host.clientWidth, h = host.clientHeight;
+        if (!w || !h) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        const aspect = w / h;
+        if (aspect > 1.25) { layout.x = Math.min(2.9, (aspect - 1) * 3.3); layout.y = 0; layout.s = 1; layout.rx = 3.3; }
+        else { layout.x = 0; layout.y = -2.0; layout.s = 0.52; layout.rx = 3.6; }
+        group.scale.setScalar(layout.s);
+        if (reduce) draw(0);
+    }
+
+    const mouse = { x: 0, y: 0 };
+    function draw(time) {
+        mouse.x += (pointer.x - mouse.x) * 0.05;
+        mouse.y += (pointer.y - mouse.y) * 0.05;
+        uniforms.uTime.value = time;
+        uniforms.uMouse.value.set(mouse.x, mouse.y);
+
+        const p = Math.min(1, Math.max(0, window.scrollY / (host.offsetHeight || 1)));
+        group.position.set(layout.x, layout.y + p * 1.8, -p * 2.5);
+        group.rotation.y = mouse.x * 0.35 + p * 0.9;
+        group.rotation.x = -mouse.y * 0.2 + p * 0.5;
+
+        core.rotation.y = time * 0.12;
+        shell.rotation.y = -time * 0.08;
+        shell.rotation.x = time * 0.05;
+        rings[0].rotation.y = time * 0.18;
+        rings[1].rotation.y = -time * 0.12;
+        particles.rotation.y = time * 0.025;
+
+        const spread = 1 + p * 0.6;
+        panels.forEach((m, i) => {
+            const a = time * 0.28 + i * Math.PI * 2 / 3;
+            m.position.set(
+                Math.cos(a) * layout.rx * spread,
+                Math.sin(time * 0.7 + i * 2) * 0.35 + (i - 1) * 0.55,
+                Math.sin(a) * 2.2 - 0.6
+            );
+            m.rotation.y = -Math.cos(a) * 0.45 + mouse.x * 0.1;
+            m.rotation.x = Math.sin(time * 0.5 + i) * 0.05 - mouse.y * 0.05;
+            m.rotation.z = Math.sin(time * 0.5 + i) * 0.04;
+        });
+
+        camera.position.x = mouse.x * 0.5;
+        camera.position.y = -mouse.y * 0.3;
+        camera.lookAt(0, 0, 0);
+        renderer.render(scene, camera);
+    }
+
+    let raf = 0, visible = false;
+    function loop(t) { raf = requestAnimationFrame(loop); draw(t * 0.001); }
+    function start() { if (!raf && !reduce) raf = requestAnimationFrame(loop); }
+    function stop() { cancelAnimationFrame(raf); raf = 0; }
+    observeVisible(host, v => { visible = v; if (v) { resize(); start(); } else stop(); });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else if (visible) start(); });
+    new ResizeObserver(resize).observe(host);
+    resize();
+}
+
+/* ---------- 3D-TELEFON ---------- */
+
+function initPhone() {
+    const host = $('#phoneStage');
+    const canvas = $('#phoneCanvas');
+    const renderer = makeRenderer(canvas);
+    if (!renderer) { host.style.display = 'none'; return; }
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 50);
+    camera.position.set(0, 0, 8.2);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+    const key = new THREE.DirectionalLight(0xffffff, 1.0); key.position.set(3, 4, 5); scene.add(key);
+    const warm = new THREE.PointLight(0xd8330a, 1.6, 20); warm.position.set(-3.5, 1.5, 3); scene.add(warm);
+    const cool = new THREE.PointLight(0xffd9c8, 0.7, 20); cool.position.set(3.5, -2, 2); scene.add(cool);
+
+    // Telefonkropp
+    function roundedShape(w, h, r) {
+        const s = new THREE.Shape(), x = -w / 2, y = -h / 2;
+        s.moveTo(x + r, y); s.lineTo(x + w - r, y); s.quadraticCurveTo(x + w, y, x + w, y + r);
+        s.lineTo(x + w, y + h - r); s.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        s.lineTo(x + r, y + h); s.quadraticCurveTo(x, y + h, x, y + h - r);
+        s.lineTo(x, y + r); s.quadraticCurveTo(x, y, x + r, y);
+        return s;
+    }
+    const bodyGeo = new THREE.ExtrudeGeometry(roundedShape(1.8, 3.7, 0.3), {
+        depth: 0.12, bevelEnabled: true, bevelThickness: 0.04, bevelSize: 0.04, bevelSegments: 5, curveSegments: 20
+    });
+    bodyGeo.translate(0, 0, -0.06);
+    const body = new THREE.Mesh(bodyGeo, new THREE.MeshStandardMaterial({ color: 0x1b1411, metalness: 0.55, roughness: 0.32 }));
+
+    const screenTex = canvasTexture(600, 1280, (g, w, h) => {
+        g.save();
+        rrect(g, 0, 0, w, h, 70); g.clip();
+        g.fillStyle = '#FAF7F3'; g.fillRect(0, 0, w, h);
+        g.fillStyle = '#171210'; g.font = '700 26px ' + FONT; g.fillText('09:41', 52, 66);
+        g.fillStyle = '#000'; rrect(g, w / 2 - 70, 24, 140, 40, 20); g.fill();
+        g.fillStyle = '#171210'; g.font = '800 34px ' + FONT; g.fillText('Nätverkstan', 48, 168);
+        const tw = g.measureText('Nätverkstan').width;
+        g.fillStyle = '#D8330A'; g.fillText('UF', 48 + tw + 4, 168);
+        g.fillStyle = '#171210'; [0, 1, 2].forEach(i => g.fillRect(w - 98, 142 + i * 12, 50, 4));
+        g.fillStyle = '#D8330A'; g.font = '700 20px ' + FONT; g.fillText('WEBBYRÅ I KUNGSBACKA', 48, 290);
+        g.fillStyle = '#171210'; g.font = '900 66px ' + FONT;
+        let y = wrap(g, 'Vi bygger hemsidan som ert arbete förtjänar', 48, 372, w - 96, 72);
+        g.fillStyle = '#6f655e'; g.font = '500 28px ' + FONT;
+        y = wrap(g, 'Hemsida från 3 499 kr. Färdig på två till tre veckor.', 48, y + 22, w - 96, 40);
+        g.fillStyle = '#D8330A'; rrect(g, 48, y + 34, w - 96, 98, 18); g.fill();
+        g.fillStyle = '#fff'; g.font = '800 32px ' + FONT; g.textAlign = 'center';
+        g.fillText('Be om en offert ↗', w / 2, y + 96);
+        g.textAlign = 'left';
+        g.fillStyle = '#171210'; g.font = '800 22px ' + FONT; g.fillText('INGÅR I VARJE SIDA', 48, y + 210);
+        g.font = '500 26px ' + FONT; g.fillStyle = '#4a403a';
+        ['Mobilanpassning', 'Grundläggande SEO', 'Kontaktformulär'].forEach((t, i) => {
+            g.fillStyle = '#D8330A'; g.fillText('✓', 48, y + 262 + i * 52);
+            g.fillStyle = '#4a403a'; g.fillText(t, 92, y + 262 + i * 52);
+        });
+        g.restore();
+    });
+    const screen = new THREE.Mesh(
+        new THREE.PlaneGeometry(1.66, 3.54),
+        new THREE.MeshBasicMaterial({ map: screenTex, transparent: true })
+    );
+    screen.position.z = 0.106;
+
+    const phone = new THREE.Group();
+    phone.add(body, screen);
+    scene.add(phone);
+
+    // Svävande etiketter
+    function chip(text, bg) {
+        const tex = canvasTexture(420, 130, (g, w, h) => {
+            g.fillStyle = bg; rrect(g, 4, 4, w - 8, h - 8, 30); g.fill();
+            g.fillStyle = '#fff'; g.font = '800 38px ' + FONT; g.textAlign = 'center';
+            g.fillText(text, w / 2, h / 2 + 13);
+        });
+        const m = new THREE.Mesh(new THREE.PlaneGeometry(1.55, 0.48), new THREE.MeshBasicMaterial({ map: tex, transparent: true }));
+        scene.add(m);
+        return m;
+    }
+    const chips = [chip('Mobilanpassad', '#D8330A'), chip('Sökbar', '#171210'), chip('Fast pris', '#D8330A'), chip('Snabb', '#171210')];
+
+    function resize() {
+        const w = host.clientWidth, h = host.clientHeight;
+        if (!w || !h) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.position.z = w / h < 0.9 ? 9.6 : 8.2;
+        camera.updateProjectionMatrix();
+        if (reduce) draw(0);
+    }
+
+    const mouse = { x: 0, y: 0 };
+    function draw(time) {
+        mouse.x += (pointer.x - mouse.x) * 0.06;
+        mouse.y += (pointer.y - mouse.y) * 0.06;
+        const rect = host.getBoundingClientRect();
+        const prog = (rect.top + rect.height / 2 - window.innerHeight / 2) / window.innerHeight;
+
+        phone.rotation.y = Math.sin(time * 0.6) * 0.4 + mouse.x * 0.45 + prog * 1.1;
+        phone.rotation.x = -mouse.y * 0.18 + prog * 0.25;
+        phone.rotation.z = Math.sin(time * 0.4) * 0.03;
+        phone.position.y = Math.sin(time * 0.9) * 0.1;
+
+        chips.forEach((c, i) => {
+            const a = time * 0.5 + i * Math.PI / 2;
+            c.position.set(Math.cos(a) * 2.5, Math.sin(time * 0.8 + i * 1.7) * 0.45 + (i % 2 ? -0.9 : 0.9), Math.sin(a) * 1.5);
+            c.rotation.y = -Math.cos(a) * 0.25;
+        });
+
+        warm.position.x = -3.5 + Math.sin(time * 0.7) * 1.2;
+        renderer.render(scene, camera);
+    }
+
+    let raf = 0, visible = false;
+    function loop(t) { raf = requestAnimationFrame(loop); draw(t * 0.001); }
+    function start() { if (!raf && !reduce) raf = requestAnimationFrame(loop); }
+    function stop() { cancelAnimationFrame(raf); raf = 0; }
+    observeVisible(host, v => { visible = v; if (v) { resize(); start(); } else stop(); });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else if (visible) start(); });
+    new ResizeObserver(resize).observe(host);
+    resize();
+}
+
+try { initHero(); } catch (err) { console.error('Hero-scen kunde inte startas', err); $('#hero').classList.add('no-webgl'); }
+try { initPhone(); } catch (err) { console.error('Telefon-scen kunde inte startas', err); }
+
+})();
+</script>
 </body>
 </html>
-```
