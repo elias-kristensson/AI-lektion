@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elias Kristensson | Min hemsida</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f2;
+            color: #222;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav .logo {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        nav a {
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 80px 12%;
+        }
+
+        .content {
+            max-width: 650px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e5e5df;
+            padding: 8px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.05;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #e45d42;
+        }
+
+        p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #222;
+            color: white;
+            padding: 14px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .button:hover {
+            background: #e45d42;
+        }
+
+        footer {
+            padding: 25px 8%;
+            border-top: 1px solid #ddd;
+            color: #888;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 70px 8%;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">EK.</div>
+        <a href="mailto:dinmail@example.com">Kontakta mig ↗</a>
+    </nav>
+
+    <main>
+        <div class="content">
+            <div class="tag">Personlig hemsida · 2026</div>
+
+            <h1>Hej, jag heter<br>
+                <span>Elias Kristensson.</span>
+            </h1>
+
+            <p>
+                Jag är en kreativ person som gillar teknik,
+                entreprenörskap och att bygga nya saker.
+                Det här är min första testhemsida på GitHub.
+            </p>
+
+            <a class="button" href="mailto:dinmail@example.com">
+                Säg hej →
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <span>© 2026 Elias Kristensson</span>
+        <span>Byggd med HTML & CSS</span>
+    </footer>
+
+</body>
+</html>
